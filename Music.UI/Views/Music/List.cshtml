@@ -1,0 +1,134 @@
+﻿@using Model
+@model Commom.PagingHelper<Music1>
+@{
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <div>
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3>Widget Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Here will be a configuration form</p>
+                </div>
+            </div>
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class=" admin-content">
+
+
+
+                        <div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>音乐ID</th>
+                                        <th>音乐</th>
+                                        <th>上传管理员</th>
+                                        <th>封面</th>
+                                        <th>音乐简介</th>
+                                        <th>音乐上传时间</th>
+                                        <th>评论数</th>
+
+
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.GetPagingData())
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.music_id)
+                                            </td>
+                                            <td>
+                                                <audio controls="controls">
+                                                    <source src="@item.music_music" />
+                                                </audio>
+
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Manager.mana_name)
+                                            </td>
+                                            <td>
+
+
+                                                <img width="75" height="75" src="@item.music_image" />
+
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.music_mess)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.music_time)
+                                            </td>
+                                            <td>
+                                                @item.Music_Comment.Count()
+
+                                            </td>
+
+                                            <td>
+                                                @Html.ActionLink("删除", "Delete", new { id = item.music_id })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        @if (Model.HasPrev)
+                                        {
+                                            <td><a href="@Url.Action("List", "Music", new { pageIndex = Model.PageIndex - 1 })">上一页</a></td>
+                                        }
+                                        else
+                                        {
+                                            <td><em style="color:Gray">上一页</em></td>
+                                        }
+                                        @if (Model.HasNext)
+                                        {
+                                            <td><a href="@Url.Action("List", "Music", new { pageIndex = Model.PageIndex + 1 })">下一页</a></td>
+                                        }
+                                        else
+                                        {
+                                            <td><em style="color:Gray">下一页</em></td>
+                                        }
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- Begin page-->
+                <div class="ui-widget ui-helper-clearfix">
+
+                </div>
+                <!-- END page-->
+
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+    </div>
+</body>
+</html>

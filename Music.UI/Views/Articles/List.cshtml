@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Model.Articles>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <div>
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3>Widget Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Here will be a configuration form</p>
+                </div>
+            </div>
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class=" admin-content">
+
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.art_id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.mana_id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.art_name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.art_image)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.art_image)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.art_time)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.art_id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.mana_id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.art_name)
+                                    </td>
+                                    <td>
+                                        @if (string.IsNullOrEmpty(item.art_image))
+                                        {
+                                            @:none
+                                        }
+                                        else
+                                        {
+                                            <img width="75" height="75" src="@Url.Content(item.art_image)" alt="image" />
+                                        }
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.art_mess)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.art_time)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("修改", "Edit", new { id = item.art_id }) |
+                                        @Html.ActionLink("查看详细", "Details2", new { id = item.art_id }) |
+                                        @Html.ActionLink("删除", "Delete", new { id = item.art_id })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+
+
+
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- Begin page-->
+                <div class="ui-widget ui-helper-clearfix">
+
+                </div>
+                <!-- END page-->
+
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+    </div>
+</body>
+</html>

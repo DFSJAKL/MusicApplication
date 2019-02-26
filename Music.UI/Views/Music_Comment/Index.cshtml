@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Model.Music_Comment>
+
+@{
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <div>
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3>Widget Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Here will be a configuration form</p>
+                </div>
+            </div>
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class=" admin-content">
+
+
+
+
+                        <p>
+
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.mc_id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Users.user_name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.mc_id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.mc_mess)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.mc_time)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.mc_id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Users.user_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.mc_id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.mc_mess)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.mc_time)
+                                    </td>
+                                    <td>
+
+                                        @Html.ActionLink("删除", "Delete", new { id = item.mc_id })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- Begin page-->
+                <div class="ui-widget ui-helper-clearfix">
+
+                </div>
+                <!-- END page-->
+
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+    </div>
+</body>
+</html>

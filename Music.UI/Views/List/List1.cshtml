@@ -1,0 +1,130 @@
+﻿@using Model
+@model Commom.PagingHelper<List>
+@{
+    ViewBag.Titile = "List1";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <div>
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3>Widget Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Here will be a configuration form</p>
+                </div>
+            </div>
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class=" admin-content">
+
+
+
+                        <div>
+                            <div>
+                                <div>
+                                    <h3>歌单管理</h3>
+                                </div>
+                                <section>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>歌单ID</th>
+                                                <th>用户ID</th>
+                                                <th>歌单封面</th>
+                                                <th>歌单描述</th>
+
+                                                <th>上传时间</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.GetPagingData())
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.list_id)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.user_id)
+                                                    </td>
+                                                    <td>
+                                                        @if (string.IsNullOrEmpty(item.list_image))
+                                                        {
+                                                            @:none
+                                                        }
+                                                        else
+                                                        {
+                                                            <img width="75" height="75" src="@Url.Content(item.list_image)" alt="images" />
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.list_mess)
+                                                    </td>
+
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.list_time)
+                                                    </td>
+                                                    <td>
+                                                        <a href="@Url.Action("Delete","List",new { id=item.list_id})">删除</a>
+
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                @if (Model.HasPrev)
+                                                {
+                                                    <td><a href="@Url.Action("List1", "List", new { pageIndex = Model.PageIndex - 1 })">上一页</a></td>
+                                                }
+                                                else
+                                                {
+                                                    <td><em style="color:Gray">上一页</em></td>
+                                                }
+                                                @if (Model.HasNext)
+                                                {
+                                                    <td><a href="@Url.Action("List1", "List", new { pageIndex = Model.PageIndex + 1 })">下一页</a></td>
+                                                }
+                                                else
+                                                {
+                                                    <td><em style="color:Gray">下一页</em></td>
+                                                }
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </section>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- Begin page-->
+                <div class="ui-widget ui-helper-clearfix">
+
+                </div>
+                <!-- END page-->
+
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿@model Model.Users
+@{
+    ViewBag.Title = "UserCenter";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UsersCenter</title>
+</head>
+<body>
+
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","Index")">主页</a></li>
+            <li class="active">&nbsp;用户中心</li>
+        </ol>
+        <h2 class="section-title black">
+            Details Of Mine
+        </h2>
+        <div class="underline purple"></div>
+        <div class="row">
+            <div class="col-sm-1 col-xs-6">
+                &nbsp;
+            </div>
+            <div class="col-sm-4 col-xs-6">
+
+                <div class="portfolio-item">
+                    <a href="@Url.Action("UserCenter","User")"><h2>  <span class="label label-primary">我的信息</span></h2></a>
+                    <br />
+
+                   
+                    <a href="@Url.Action("Save","User")"><h2> <span class="label label-primary">我的收藏</span></h2></a>
+                    <br />
+                   
+
+
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <div>
+
+
+                    <p>
+                        <span>用户名:</span>
+                        @Model.user_name  
+                    </p>
+                    <br />
+                    <p>
+                        <span>用户性别:</span>
+                        @Model.user_sex  
+                    </p>
+                    <br />
+                    <p>
+                        <span>用户邮箱:</span>
+                        @Model.user_email  
+                    </p>
+                    <br />
+                    <P>
+                        <span>用户号码:</span>
+                        @Model.user_phone  
+                    </P>
+                    <br />
+                    <p>
+                        <h3><span class="label label-info"> @Html.ActionLink("修改个人信息", "Edit", new { id = @Session["user_id"], @clss = "label label-info" }) </span>  </h3>
+                    </p>
+                </div>
+            </div>
+           
+        </div>
+</body>
+</html>

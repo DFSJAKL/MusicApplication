@@ -1,0 +1,203 @@
+﻿@model IEnumerable<Model.Users>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>List</title>
+    </head>
+    <body>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.user_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.user_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.user_pwd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.user_email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.user_phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.user_sex)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.user_time)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_pwd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_time)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("删除", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+        </table>
+    </body>
+    </html>*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <div>
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3>Widget Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Here will be a configuration form</p>
+                </div>
+            </div>
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class=" admin-content">
+
+
+                        <table class="table">
+                            <tbody id="list"></tbody>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.user_id)
+                                </th>
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.User_Img)
+                                    </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.user_name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.user_pwd)
+                                </th>
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.User_ConPwd)
+                                    </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.user_sex)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.user_email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.user_phone)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.user_time)
+                                </th>
+                                <th></th>
+                            </tr>
+                            </table> 
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.user_id)
+                                    </td>
+                                    @*<td>
+                                            <div>
+                                                @if (string.IsNullOrEmpty(item.User_Img))
+                                                {
+                                                    @:none
+                                                }
+                                                else
+                                                {
+                                                    <img width="75" height="75" src="@Url.Content(item.User_Img)" alt="images" />
+                                                }
+                                            </div>
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.user_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.user_pwd)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.User_ConPwd)
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.user_sex)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.user_email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.user_phone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.user_time)
+                                    </td>
+                                    <td>
+
+
+                                        @Html.ActionLink("删除", "Delete", new { id = item.user_id })
+                                    </td>
+                                </tr>
+                            }
+
+                 
+
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- Begin page-->
+                <div class="ui-widget ui-helper-clearfix">
+
+                </div>
+                <!-- END page-->
+
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+    </div>
+</body>
+</html>

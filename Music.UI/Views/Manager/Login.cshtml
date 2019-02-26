@@ -1,0 +1,30 @@
+﻿@model Model.Manager
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+
+<div>
+    <a href="@Url.Action("Index","Manager")">管理员主页</a>
+    <div>
+        @using (Html.BeginForm("Login", "Manager", FormMethod.Post))
+        {
+            @Html.ValidationSummary("");
+
+            <div>
+                <div>
+                    @Html.TextBoxFor(manager => manager.mana_name)
+                </div>
+                <div>
+                    @Html.PasswordFor(manager => manager.mana_pwd)
+                </div>
+                <div>
+                    <input type="submit" value="登录" />
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

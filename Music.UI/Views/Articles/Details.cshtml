@@ -1,0 +1,61 @@
+﻿@using PagedList.Mvc
+@using Model
+@model Music.UI.ViewModel.ArticlesViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <div>
+        <h4>文章</h4>
+        <hr />
+        <div>
+
+            <img src="@Model.Articles1.art_image" width="150" height="200" />
+            <br />
+            @Model.Articles1.art_name
+            <br />
+            @Model.Articles1.art_mess
+            <br />
+            @Model.Articles1.art_time
+
+        </div>
+    </div>
+    <hr />
+    <div>
+        <div class="comment-primary">
+            @using (Html.BeginForm("AC_Add", "Articles", FormMethod.Post, new { id = "pinglun", @class = "postbox", enctype = "multipart/form-data" }))
+            {
+
+                <div class="textarea-wrapper">
+                    <textarea class="textarea" name="mcmes"></textarea>
+                </div>
+                <input type="hidden" name="mcid" value="@Model.Articles1.art_id " />
+                if (Session["user_name"] != null)
+                {
+                    <a href="javascript:document.getElementById('pinglun').submit()" class="u-btn btn-postcmt">发表评论</a>
+
+                }
+                else
+                {
+                    <a href="#" id="example2" class="u-btn btn-postcmt">发表评论</a>
+
+                }
+            }
+        </div>
+    </div>
+    <div>
+        @*@{ Html.RenderAction("News_Comment", "News_Comment");}*@
+        @foreach (Articles_Comment p in Model.Articles_Comment)
+        {
+            @p.Users.user_name 
+            @p.ac_mess 
+
+            @p.ac_time 
+            <br />
+        }
+    </div>
+
+</div>

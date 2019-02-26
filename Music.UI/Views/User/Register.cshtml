@@ -1,0 +1,90 @@
+﻿@model Model.Users
+@{
+    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    @*<script>
+        $(function () {
+            //用户名检测异步请求
+            $('#username').blur(function () {
+                $.ajax({
+                    url: '@Url.Action("CheckUsers","User")',
+                    data: { UserName: $('#username').val() },
+                    type: 'POST',
+                    success: function (msg) {
+                        $('#CheckUsersResult').remove();
+                        $('.CheckUsersName').append("<span id='CheckUsersResult'>" + msg + "</span>").css('color', '#00EE00');
+                    }
+                });
+            });
+    </script>*@
+</head>
+<body>
+    <div>
+        <div>
+            <a href="@Url.Action("Index","Index")" title="Music">
+
+                @*<img src="~/image/logo.png" width="70" title="Music" />*@
+            </a>
+        </div>
+        <div>
+            <div>
+                @using (Html.BeginForm("Register", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div>
+                        <div>
+                            用户名：
+                            @Html.TextBoxFor(user => user.user_name )
+                            @Html.ValidationMessageFor(user => user.user_name)
+                        </div>
+                        <div>
+                            密码：
+                            @Html.TextBoxFor(user => user.user_pwd)
+                            @Html.ValidationMessageFor(user => user.user_pwd)
+                        </div>
+                        @*<div>
+                            确认密码：
+                            @Html.TextBoxFor(user => user.User_ConPwd)
+                            @Html.ValidationMessageFor(user => user.User_ConPwd)
+                        </div>*@
+                        @*<div>
+                            用户头像:
+
+                            <div>
+                                <input type="file" name="image1" />
+                            </div>
+                        </div>*@
+                        <div>
+                            用户性别：
+                            @Html.EditorFor(model => model.user_sex)
+                            @Html.ValidationMessageFor(model => model.user_sex)
+                        </div>
+                        <div>
+                            邮箱：
+                            @Html.EditorFor(model => model.user_email)
+                            @Html.ValidationMessageFor(model => model.user_email)
+                        </div>
+                        <div>
+                            电话：
+                            @Html.EditorFor(model => model.user_phone)
+                            @Html.ValidationMessageFor(model => model.user_phone)
+                        </div>
+                        <div>
+                            <div>
+                                <input type="submit" value="创建" />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        @Html.ActionLink("返回主页", "Index", "Index")
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

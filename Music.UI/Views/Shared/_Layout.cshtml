@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Shared/css/skel-noscript.css" rel="stylesheet" />
+    <link href="~/Content/Shared/css/style.css" rel="stylesheet" />
+    <link href="~/Content/Shared/css/style-desktop.css" rel="stylesheet" />
+    <script src="~/Content/Shared/js/init.js"></script>
+    <script src="~/Content/Shared/js/skel.min.js"></script>
+    <script src="~/Content/Shared/js/skel-panels.min.js"></script>
+
+</head>
+<body style="background-color:white">
+    <!-- Header -->
+    <div id="header">
+        <div class="container">
+
+            <!-- Logo -->
+            <div id="logo">
+                <h1><a href="#">Music</a></h1>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="@Url.Action("Index","Index")">首页</a></li>
+                    <li><a href="@Url.Action("Index1","Music")">音乐</a></li>
+                    <li><a href="@Url.Action("Index","Articles")">新闻</a></li>
+                    <li><a href="@Url.Action("UserCenter","User")">个人中心</a></li>
+                    @if (Session["User_ID"] != null)
+                    {
+
+
+                        <li>
+                            <a href="@Url.Action("LogOff","User")">退出</a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Login","User")">登录</a></li>
+                    }
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+    <!-- Header -->
+
+
+    <div>
+        @RenderBody()C
+    </div>
+    <!-- Footer -->
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <section class="4u">
+
+                    <ul class="default">
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">版权声明</a></li>
+
+                    </ul>
+                </section>
+                <section class="4u">
+
+                    <ul class="default">
+                        <li><a href="#">人才招聘</a></li>
+                        <li><a href="#">友情链接</a></li>
+
+                    </ul>
+                </section>
+                <section class="4u">
+
+                    <ul class="default">
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">客服中心</a></li>
+
+
+                    </ul>
+                </section>
+                <div >
+                    Copyright &copy; 2018.Music版权所有 <a href="#">江西师大工作室项目</a><br />
+                    <a href="@Url.Action("Login","Manager")" >管理员登陆</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright -->
+    <div id="copyright">
+        <div class="container">
+            Copyright &copy; 2018.Music版权所有 <a href="#">江西师大工作室项目</a><br />
+                  <a href="@Url.Action("Login","Manager")">管理员登陆</a>
+        </div>
+    </div>
+
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

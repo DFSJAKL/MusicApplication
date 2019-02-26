@@ -1,0 +1,16 @@
+﻿@model Music.UI.ViewModel.ListViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+<div>
+    <div>
+        @Html.ActionLink("创建我的歌单", "Add")
+    </div>
+   
+    <div>
+        @{ Html.RenderAction("List1", "List");}
+    </div>
+</div>

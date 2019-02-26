@@ -1,0 +1,15 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<a href="@Url.Action("Login","User")">用户登录</a>
+<a href="@Url.Action("Add","List")">歌单添加</a>
+@Html.ActionLink("修改个人信息", "Edit", new { id = @Session["user_id"] })|
+
+<a href="@Url.Action("Index1","Music")">音乐主页</a>
+<a href="@Url.Action("Login","Manager")">管理员登陆</a>

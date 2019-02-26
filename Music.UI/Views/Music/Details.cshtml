@@ -1,0 +1,84 @@
+﻿@using PagedList.Mvc
+@using Model
+@model Music.UI.ViewModel.MusicViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <div>
+        <div>
+            <div>
+                <img src="@Model.Music2.music_image  " width="150" height="200" /><br />
+                @Model.Music2.music_mess<br />
+                @Model.Music2.music_time<br />
+                <audio controls="controls">
+                    <source src="@Model.Music2.music_music" />
+                </audio>
+
+
+            </div>
+            <div>
+                @using (Html.BeginForm("Comments", "Music_comment", FormMethod.Post, new { id = "pinglun" }))
+                {
+                    <div>
+                        <textarea class="textarea" name="textarea"></textarea>
+                    </div>
+                    <input type="hidden" name="music_id" value="@Model.Music2.music_id " />
+                    if (Session["user_name"] != null)
+                    {
+                        <a href="javascript:document.getElementById('pinglun').submit()" class="u-btn btn-postcmt">发表评论</a>
+
+                    }
+                    else
+                    {
+                        <a href="#" id="example2" class="u-btn btn-postcmt">发表评论</a>
+
+                    }
+                }
+            </div>
+            <div>
+                @*<div>
+            <div>
+                @if (Session["user_name"] != null)
+                {
+                    <a href="@Url.Action("Point", "Picture", new {Pic_ID=Model.Picture1.Pic_ID})">
+
+                        <p>点赞</p>
+                    </a>
+                }
+                else
+                {
+                    <p>nothing</p>
+                }
+            </div>
+
+        </div>*@
+                <div>
+                    <a href="@Url.Action("Add", "List_Music_Keep", new {music_id=Model.Music2.music_id })">
+
+                        <p>收藏到歌单</p>
+                    </a>
+                </div>
+            </div>
+            <div>
+
+                <div>
+                    @{ string tempid;}
+                    @foreach (Music_Comment p in Model.Music_Comment)
+                    {
+                        tempid = "dev" + p.mc_id;
+
+
+                        @p.mc_mess 
+                        <a href="@Url.Action("UserIndex", new {user_id=p.user_id })">@p.Users.user_name </a>
+                        @p.mc_time 
+                        <br />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

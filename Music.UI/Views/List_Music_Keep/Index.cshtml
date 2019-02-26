@@ -1,0 +1,11 @@
+﻿@model List<Model.List_Music_Keep>
+
+@{
+    Layout = null;
+}
+@foreach (var p in Model)
+{
+   <a href="@Url.Action("Details","Music",new { id=p.Music1.music_id})" > <img src="@p.Music1.music_image" width="200" height="200" /> 
+    </a>
+
+}

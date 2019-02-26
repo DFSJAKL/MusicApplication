@@ -1,0 +1,26 @@
+﻿@model Music.UI.ViewModel.ListViewModel
+@using Model;
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+<div>
+    <div>
+        <div>
+
+           
+            @foreach (var p in Model.List2)
+            {
+                <a href="@Url.Action("Add2","List_Music_Keep" ,new {listid=p.list_id,musid=Model.Music.music_id } )">
+                    @p.list_name 
+                 
+                </a>
+
+
+            }
+
+        </div>
+    </div>
+</div>

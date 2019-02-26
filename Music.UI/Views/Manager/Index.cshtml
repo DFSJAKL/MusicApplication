@@ -1,0 +1,81 @@
+﻿@model Commom.PagingHelper<Manager>
+    @using Model
+@{
+    ViewBag.Title = "Index";
+    //Layout = "~/ Views / Shared / _LayoutManager.cshtml";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+
+}
+
+    <div class=" admin-content">
+
+       
+            <a href="@Url.Action("Add","Manager")">管理员添加</a>
+            <table class="table">
+                <tr>
+                    <th>
+                        管理员ID
+                    </th>
+                    <th>
+                        管理员名
+                    </th>
+                    <th>
+                        管理员密码
+                    </th>
+                    <th>
+                        管理员添加时间
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                @foreach (var item in Model.GetPagingData())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mana_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mana_name )
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mana_pwd )
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mana_time )
+                    </td>
+                    <td>
+                        @Html.ActionLink("修改", "Edit", new { id = item.mana_id  })|
+                        @Html.ActionLink("删除", "Delete", new { id = item.mana_id  })
+                    </td>
+
+                </tr>
+        }
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        @if (Model.HasPrev)
+                    {
+                        <td><a href="@Url.Action("Index","Manager",new { pageIndex = Model.PageIndex - 1 })">上一页</a></td>
+                }
+                else
+                {
+                    <td><em style="color:dimgray">上一页</em></td>
+            }
+                        @if (Model.HasNext)
+                    {
+                        <td>
+                            <a href="@Url.Action("Index", "Manager", new { pageIndex = Model.PageIndex + 1 })">下一页</a>
+                        </td>
+                }
+                else
+                {
+                    <td><em style="color:dimgray">下一页</em></td>
+            }
+                    </tr>
+                </tfoot>
+            </table>
+        
+    </div>

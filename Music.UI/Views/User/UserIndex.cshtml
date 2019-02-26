@@ -1,0 +1,50 @@
+﻿@using Model
+@model Music.UI.ViewModel.UserViewModel 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserIndex</title>
+</head>
+<body>
+    
+    <br />
+
+    <span>  <h2 class="w3" style="color:#97b7b7">@Model.User1.user_name 的主页 </h2></span>
+
+
+    <hr />
+    <h3>他/她的音乐</h3>
+
+    <div class="blog-grids1">
+
+
+        @foreach (Music1  p in Model.Music2)
+        {
+            <div class="col-md-6 blog-grid">
+                <div class="blog-grid-left1">
+                    <img src="@p.music_music  " height="280" />
+                </div>
+
+                <div class="blog-grid-right1">
+
+                    <h4 style="color:#97b7b7">@p.music_time </h4>
+                    <p>
+                        @p.music_image  
+                    </p>
+                </div>
+                <div class="clearfix"> </div>
+                <div class="more m1">
+
+                    <a class="btn effect6" href="@Url.Action("Details","Music",new {id=p.music_id})">查看详细</a>
+                </div>
+            </div>
+        }
+
+</body>
+</html>

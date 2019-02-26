@@ -1,0 +1,187 @@
+﻿@Model
+@model Music.UI.ViewModel.ListViewModel
+@{
+
+    ViewBag.Title = "Details";
+}
+
+<!DOCTYPE html>
+
+<section class="section-background">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","Index")">主页</a></li>
+            @if (Session["user_id"] == null)
+            {
+               
+                <li class="active">&nbsp;歌单详细</li>
+
+            }
+            else
+            {
+               
+                <li class="active">&nbsp;歌单详细</li>
+                <li style="float:right;"><a href="@Url.Action("List2","list")">我的歌单</a></li>
+            }
+
+           
+        </ol>
+
+
+    </div>
+</section>
+<section class="about" id="about" style="background: #f3f3f3;">
+    <div class="container section-wrapper">
+        <h2 class="section-title black">
+            Details  Of  Music List
+        </h2>
+        <div class="underline purple"></div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <img src="@Model.List1.list_image " width="500" />
+            </div>
+            <div class="col-md-6 col-sm-12" style="height:350px">
+                <p class="about-detail">
+                </p>
+                <p class="about-detail">
+                    上传人: <a href="@Url.Action("UserIndex","User",new {user_id=Model.List1.Users.user_id})">
+                        @Model.List1.Users.user_id  
+                    </a>
+                    <br />
+                    <br />
+                    <br />
+                </p>
+                <p class="about-detail">
+                    歌单:@Model.List1.list_name  
+                    <br />
+                </p>
+                <p class="about-detail">
+                    &nbsp;
+                </p>
+                <p class="about-detail">
+                    歌单简介:@Model.List1.list_mess
+                    <br />
+                </p>
+                <p class="about-detail">
+                    &nbsp;
+                </p>
+                <p class="about-detail">
+                    上传时间:@Model.List1.list_time  
+                    <br />_Tim
+                </p>
+                <p class="about-detail">
+                    &nbsp;
+                </p>
+                @*<p class="about-detail">
+
+                    @if (Session["User_Name"] != null)
+                    {
+                        <a href="@Url.Action("Point", "Album", new {Alb_ID=Model.Album1.Alb_ID})">
+                            <span class="btn-outline-info">点赞(@Model.Album_Point.Count()) </span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Point", "Album", new {Alb_ID=Model.Album1.Alb_ID})">
+                            <span class="btn-outline-primary">点赞(@Model.Album_Point.Count()) </span>
+                        </a>
+                    }
+
+                </p>
+                <p class="about-detail">
+                    &nbsp;
+                </p>*@
+                <p class="about-detail">
+                    @if (Session["user_name"] != null)
+                    {
+                        <a href="@Url.Action("Save","List",new { list_id=Model.List1.list_id})">
+                            <span class="btn-outline-info">收藏(@Model.List_Keep.Count()  )</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Save","List",new { list_id=Model.List1.list_id})">
+                            <span class="btn-outline-info">收藏(@Model.List_Keep.Count()  )</span>
+                        </a>
+                    }
+                </p>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="team">
+    <div class="container section-wrapper">
+        <h2 class="section-title black">
+           歌单音乐
+        </h2> <!-- /.section-title -->
+        <div class="underline purple"></div>
+        <div class="row">
+            @{ Html.RenderAction("Index", "List_Music_Keep");}
+        </div>
+    </div>
+
+
+</section>
+
+<section class="team">
+    <div class="row">
+        <div class="container section-wrapper">
+            @using (Html.BeginForm("Details", "List", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="col-md-12 col-xs-12 form-group">
+                    <label class="sr-only">评论</label>
+                    <textarea class="textarea form-control" style="height:100px" name="acmes" placeholder="写下评论"></textarea>
+                </div>
+                <input type="hidden" name="albid" value="@Model.List1.list_id " />
+                if (Session["user_id"] != null)
+                {
+                    <input type="submit" value="发表评论" class="btn btn-sub" style="float:right" />
+
+
+                }
+                else
+                {
+
+                    <input type="submit" value="发表评论" class="btn btn-sub" style="float:right" />
+
+                }
+            }
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="container section-wrapper">
+            <div class="col-md-12 col-xs-12 form-group">
+                <div>
+
+                    @foreach (var p in Model.List_Comment)
+                    {
+                        <div style="float:left;margin-right:20px;">
+                            <a href="@Url.Action("UserIndex","User",new {user_id=p.Users.user_id})"></a>  @*<img src="@p.Users.user_image" height="50" width="50" /></a>*@
+                        </div>
+                        <div style=" background: #f2fbf2;color: #666;padding: 2px 4px;">
+                            <span>    @p.lc_time</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp; <a href="@Url.Action("UserIndex","User",new {user_id=p.Users.user_id})">@p.Users.user_name   </a>
+                        </div>
+
+
+                        <p> @p.lc_mess</p>
+
+
+                        <br />
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</section>

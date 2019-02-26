@@ -1,0 +1,86 @@
+﻿@using Model
+@model Music.UI.ViewModel.MusicViewModel
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <!-- Banner -->
+    <div id="banner">
+        <div class="container">
+        </div>
+    </div>
+    <!-- /Banner -->
+    <!-- Main -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+
+                <div class="3u">
+                    
+                    <section class="sidebar">
+                        <header>
+                            <a href="@Url.Action("Index1","Music")"> <h2>音乐列表</h2> </a>
+                        </header>
+                        @foreach (var m in Model.Musics)
+                        {
+
+                            <ul class="default">
+                                @*<li><a href="@Url.Action("Details","Music",new {id=m.music_id})">不谓侠</a></li>
+                                   <li><a href="@Url.Action("Details","Music",new {id=m.music_id})">隔烟水</a></li>
+                                    <li><a href="@Url.Action("Details","Music",new {id=m.music_id})">牵丝戏</a></li>
+                                    <li><a href="@Url.Action("Details","Music",new {id=m.music_id})">清明上河图</a></li>
+                                    <li><a href="@Url.Action("Details","Music",new {id=m.music_id})">理想三旬</a></li>*@
+                                <li><a href="@Url.Action("Details","Music",new {id=m.music_id})">@m.music_name </a></li>
+                            </ul>
+
+                        }
+                    </section>
+                    <section class="sidebar">
+                        <header>
+                            <a href="@Url.Action("Index2","Music")"> <h2>歌单列表</h2> </a>
+                        </header>
+                        @foreach (var l in Model.List1)
+                        {
+
+                            <ul class="default">
+                                @*<li><a href="@Url.Action("Details","List",new {id=l.list_id})">古风与电子元素碰撞</a></li>
+                                    <li><a href="@Url.Action("Details","List",new {id=l.list_id})">运动/游戏必备</a></li>
+                                    <li><a href="@Url.Action("Details","List",new {id=l.list_id})">纯音乐</a></li>
+                                    <li><a href="@Url.Action("Details","List",new {id=l.list_id})">华语专辑</a></li>
+                                    <li><a href="@Url.Action("Details","List",new {id=l.list_id})">世界杯音乐集锦</a></li>
+                                    <li><a href="@Url.Action("Details","List",new {id=l.list_id})">经典电影背景配乐</a></li>*@
+                                <li><a href="@Url.Action("Details","List",new {id=l.list_id})">@l.list_name</a></li>
+                            </ul>
+
+                        }
+                    </section>
+                </div>
+
+
+                <div class="9u skel-cell-important" style="display:inline;">
+                    <section>
+                        <div class="row">
+                            @{ Html.RenderAction("List", "List");}
+                           
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Main -->
+</body>
+</html>
+

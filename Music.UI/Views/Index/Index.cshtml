@@ -1,0 +1,150 @@
+﻿@using Model
+@model Music.UI.ViewModel.IndexViewModel
+@{
+    ViewBag.Title = "Index";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@section head{
+    }*@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Music</title>
+    @*<script src="~/Content/Shared/js/html5shiv.js"></script>
+    <script src="~/Content/Shared/js/init.js"></script>
+    <script src="~/Content/Shared/js/skel-panels.min.js"></script>
+    <script src="~/Content/Shared/js/skel.min.js"></script>
+    <link href="~/Content/Shared/css/style.css" rel="stylesheet" />
+    <link href="~/Content/Shared/css/style-desktop.css" rel="stylesheet" />
+    <link href="~/Content/Shared/css/skel-noscript.css" rel="stylesheet" />
+    <link href="~/Content/Shared/css/style-mobile.css" rel="stylesheet" />*@
+</head>
+<body>
+    <!-- Banner -->
+    <div id="banner">
+        <div class="container">
+
+            <section>
+                <span class="fa fa-cubes"></span>
+                <header>
+                    <h2>音乐是生命的一种符号</h2>
+                    <span class="byline">              是一场心与心的碰撞</span>
+                </header>
+                <a href="#" class="button medium">Fusce ultrices fringilla</a>
+            </section>
+        </div>
+    </div>
+    <!-- /Banner -->
+ 
+
+    <!-- Extra -->
+    <div id="extra">
+        <div class="container">
+            <a href="#" class="button medium">推荐歌单</a>
+            <div class="row">
+             
+             <section class="3u">
+                    <header>
+                        <h2>
+                            <a href="@Url.Action("Details","List",new {id=11})"> 古风<img src="~/Content/Shared/images/古风.jpg" width="261" height="214" alt="" /></a>
+                        </h2>
+                    </header>
+
+
+                    <p>Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus.</p>
+                </section>
+                <section class="3u">
+                    <header>
+                        <h2>
+                            
+                            <a href="@Url.Action("Details","List",new {id=12})">电音<img src="~/Content/Shared/images/电音.jpg" width="261" height="214" alt="" /></a> 
+</h2>
+                    </header>
+
+                    <p>Pellentesque tristique ante ut risus. Integer risus congue. Suspendisse dictum porta lectus.</p>
+                </section>
+                <section class="3u">
+                    <header>
+                        <h2>
+                            <a href="@Url.Action("Details","List",new {id=13})">华语<img src="~/Content/Shared/images/青春.jpg" width="261" height="214" alt="" /></a> 
+</h2>
+                    </header>
+
+                    <p>Suspendisse dictum porta lectus. Integer nisl risus, sagittis convallis, rutrum congue nibh. </p>
+                </section>
+                <section class="3u">
+                    <header>
+                        <h2>
+                            <a href="@Url.Action("Details","List",new {id=14})"> 欧美<img src="~/Content/Shared/images/欧美.jpg" width="261" height="214" alt="" /></a> 
+</h2>
+                    </header>
+
+                    <p>In posuere eleifend odio quisque semper augue mattis wisi maecenas ligula augue praesent.</p>
+                </section>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- /Extra -->
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/">企业网站模板</a></div>
+
+    <!-- Main -->
+    <div id="main">
+
+        <div class="container">
+            <a href="#" class="button medium">推荐文章</a>
+                   
+
+            <div class="row">
+                <section class="6u right">
+                    <a href="#" class="image full">
+                        <img src="~/Content/Shared/images/pics05.jpg" />
+                    </a>
+                    <p>This is <strong>Imagination</strong>, a responsive HTML5 site template freebie. Released for free under the Creative Commons Attribution</a> license, so use it for whatever (personal or commercial) &ndash; just give us credit! Check out more of our stuff at or follow us on.</p>
+                </section>
+                <section class="6u left">
+                    <a href="#" class="image full">
+                        <img src="~/Content/Shared/images/pics06.jpg" />
+                    </a>
+                    <p>Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Pellentesque adipiscing purus ac magna. Pellentesque habitant morbi tristique senectus aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi purus ac magna. Pellentesque habitant morbi</p>
+                </section>
+            </div>
+            <div class="divider"></div>
+
+        </div>
+    </div>
+    <!-- /Main -->
+    <!-- Featured -->
+    <div id="featured">
+        <div class="container">
+            <a href="#" class="button medium">推荐音乐</a>
+            <div class="row">
+                <section class="4u">
+                    <a href="#" class="image full">
+                        <img src="~/Content/Shared/images/即春谣.jpg"alt="" width="261" height="252" />
+                    </a>
+                    <p>Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus.</p>
+                    <p><a href="@Url.Action("Details","Music",new {id=3})">即春谣</a></p>
+                </section>
+                <section class="4u">
+                    <a href="#" class="image full">
+                        <img src="~/Content/Shared/images/锦鲤抄.jpg" alt="" width="261" height="252"/>
+                    </a>
+                    <p>Pellentesque tristique ante ut risus. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus.</p>
+                    <p><a href="@Url.Action("Details","Music",new {id=4})">锦鲤抄</a></p>
+                </section>
+                <section class="4u">
+                    <a href="#" class="image full">
+                        <img src="~/Content/Shared/images/清明梦.jpg" alt="" width="261" height="252"/>
+                    </a>
+                    <p>Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus.</p>
+                    <p><a href="@Url.Action("Details","Music",new {id=5})">清明梦</a></p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured -->
+
+</body>
+</html>

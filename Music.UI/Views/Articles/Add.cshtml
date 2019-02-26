@@ -1,0 +1,86 @@
+﻿@model Model.Articles
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <div>
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3>Widget Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Here will be a configuration form</p>
+                </div>
+            </div>
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class=" admin-content">
+
+
+
+                        @using (Html.BeginForm("Add", "Articles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "")
+                            <div>
+                                @Html.LabelFor(model => model.art_name)
+                                <div>
+                                    @Html.EditorFor(model => model.art_name)
+                                    @Html.ValidationMessageFor(model => model.art_name)
+                                </div>
+                            </div>
+                            <div>
+                                @Html.LabelFor(model => model.art_image)
+                                <div>
+                                    <input type="file" name="articlesimage" />
+                                </div>
+                            </div>
+
+                            <div>
+                                @Html.LabelFor(model => model.art_mess)
+                                <div>
+
+                                    @Html.EditorFor(model => model.art_mess)
+                                    @Html.ValidationMessageFor(model => model.art_mess)
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <input type="submit" value="发布文章" />
+                                </div>
+                            </div>
+                            <div>
+                                @Html.ActionLink("返回文章列表", "List")
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- Begin page-->
+                <div class="ui-widget ui-helper-clearfix">
+
+                </div>
+                <!-- END page-->
+
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+    </div>
+</body>
+</html>

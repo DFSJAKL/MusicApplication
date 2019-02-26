@@ -1,0 +1,84 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Model.List>
+@{
+    ViewBag.Title = "List2";
+
+}
+
+<!DOCTYPE html>
+
+    <link href="~/Content/_share/User/assets/css/service.css" rel="stylesheet" />
+    <section class="section-background" >
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index","Index")">主页</a></li>
+
+                <li class="active"><a href="@Url.Action("UserCenter","User")">&nbsp;用户中心</a></li>
+                <li class="active">&nbsp; 我的歌单</li>
+            </ol>
+        </div>
+    </section>
+    <section class="portfolio" id="portfolio" >
+        <div class="container section-wrapper" style="color:white">
+            <h2 class="section-title black">
+                Pictures Of Mine
+            </h2>
+            <div class="underline purple"></div>
+            <div class="row">
+                <div class="col-sm-1 col-xs-6">
+                    &nbsp;
+                </div>
+                <div class="col-sm-4 col-xs-6">
+
+                    <div class="portfolio-item">
+                        <a href="@Url.Action("UserCenter","User")"><h2>  <span class="label label-primary">我的信息</span></h2></a>
+                        <br />
+                        <a href="@Url.Action("List2","List")"><h2>  <span class="label label-primary">我的歌单</span></h2></a>
+                        <br />
+                        <a href="@Url.Action("Music1","Music")"><h2><span class="label label-primary">我的音乐</span> </h2></a>
+                        <br />
+                        <a href="@Url.Action("Save","User")"><h2> <span class="label label-primary">我的收藏</span></h2></a>
+                        <br />
+
+                    </div>
+                </div>
+                <div class="col-sm-7 col-xs-6">
+
+                    @foreach (var p in Model)
+                    {
+                        <div class="col-sm-4 col-xs-6">
+                            <div>
+                                <a href="@Url.Action("Details",new {id=p.list_id})">
+                                    <img height="150" src="@p.list_image " />
+                                </a>
+                            </div>
+
+                            <div>
+                                @p.list_name
+                            </div>
+                            <br />
+                            <div>
+                                @p.list_time
+                            </div>
+                            <div>
+
+                                <a href="@Url.Action("Delete1","Music",new { id = p.list_id})"><span class="label label-warning" style="float:right"> 删除</span></a>
+                            </div>
+                        </div>
+                    }
+
+
+
+                </div>
+                <div style="float:right;">
+                    <div>
+                        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                    </div>
+                    <div>
+                        @Html.PagedListPager(Model, page => Url.Action("List2", "List", new { page }))
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,14 @@
+﻿
+@model Music.UI.ViewModel.ArticlesViewModel
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Index</h2>
+<div>
+    <div>
+        @{ Html.RenderAction("Articles", "Articles");}
+    </div>
+</div>
+

@@ -1,0 +1,613 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07D1C12F-4620-4528-A0C6-1A3F569B25B3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Music.UI</RootNamespace>
+    <AssemblyName>Music.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Shared1\public\media\css\bootstrap-modal.css" />
+    <Content Include="Content\Shared1\public\media\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\Shared1\public\media\css\bootstrap.min.css" />
+    <Content Include="Content\Shared1\public\media\css\colpick.css" />
+    <Content Include="Content\Shared1\public\media\css\coming-soon.css" />
+    <Content Include="Content\Shared1\public\media\css\default.css" />
+    <Content Include="Content\Shared1\public\media\css\font-awesome.css" />
+    <Content Include="Content\Shared1\public\media\css\font-awesome.min.css" />
+    <Content Include="Content\Shared1\public\media\css\jquery-ui-1.10.1.custom.min.css" />
+    <Content Include="Content\Shared1\public\media\css\style-metro.css" />
+    <Content Include="Content\Shared1\public\media\css\style-non-responsive.css" />
+    <Content Include="Content\Shared1\public\media\css\style-responsive.css" />
+    <Content Include="Content\Shared1\public\media\css\style.css" />
+    <Content Include="Content\Shared1\public\media\css\uniform.default.css" />
+    <Content Include="Content\Shared1\public\media\image\avatar1.jpg" />
+    <Content Include="Content\Shared1\public\media\image\avatar1_small.jpg" />
+    <Content Include="Content\Shared1\public\media\image\favicon.png" />
+    <Content Include="Content\Shared1\public\media\image\fontawesome-webfont.svg" />
+    <Content Include="Content\Shared1\public\media\image\glyphicons-regular.svg" />
+    <Content Include="Content\Shared1\public\media\image\icon-color.png" />
+    <Content Include="Content\Shared1\public\media\image\icon\icondel.png" />
+    <Content Include="Content\Shared1\public\media\image\icon\move.png" />
+    <Content Include="Content\Shared1\public\media\image\logo.jpg" />
+    <Content Include="Content\Shared1\public\media\image\logo.png" />
+    <Content Include="Content\Shared1\public\media\image\menu-toggler.png" />
+    <Content Include="Content\Shared1\public\media\image\sidebar-toggler-blue.jpg" />
+    <Content Include="Content\Shared1\public\media\image\sidebar-toggler-brown.jpg" />
+    <Content Include="Content\Shared1\public\media\image\sidebar-toggler-light.jpg" />
+    <Content Include="Content\Shared1\public\media\image\sidebar-toggler.jpg" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\additional-methods.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\app.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-colorpicker.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-datepicker.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-datetimepicker.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-fileupload.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-modal.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-modalmanager.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-rtl.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-tag.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-timepicker.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-tree.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap-wysihtml5.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\bootstrap.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\breakpoints.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\breakpoints.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\calendar.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\canvas-to-blob.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\charts.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\chosen.jquery.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\ckeditor.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\clockface.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\colpick.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\coming-soon.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\contact-us.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\date.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\daterangepicker.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\dropzone.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\DT_bootstrap.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\excanvas.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\excanvas.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\form-components.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\form-fileupload.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\form-samples.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\form-validation.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\form-wizard.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\fullcalendar.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\gallery.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\gmaps.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\inbox.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\index.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery-1.10.1.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery-1.8.3.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.backstretch.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.blockui.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.bootpag.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.cookie.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.countdown.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.dataTables.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.dataTables.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.easy-pie-chart.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.fancybox.pack.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.fileupload-fp.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.fileupload-ui.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.fileupload.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.flot.crosshair.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.flot.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.flot.pie.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.flot.resize.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.flot.stack.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.gritter.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.iframe-transport.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.input-ip-address-control-1.0.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.inputmask.bundle.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.knob.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.multi-select.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.nestable.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.pulsate.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.slimscroll.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.sparkline.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.tagsinput.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.toggle.buttons.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.ui.widget.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.uniform.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.upload.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.validate.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jquery.xdr-transport.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\jsaddress.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\load-image.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\lock.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\login-soft.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\login.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\maps-google.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\maps-vector.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\plugin.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\portlet-draggable.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\respond.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\respond.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\search.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\select2.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\table-advanced.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\table-editable.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\table-managed.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\tmpl.min.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\ui-general.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\ui-jqueryui.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\ui-modals.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\ui-nestable.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\ui-sliders.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\ui-tree.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\uploadpreview.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\website - 副本 %282%29.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\website - 副本.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\website.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\wecard.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\wysihtml5-0.3.0.js" />
+    <Content Include="Content\Shared1\public\media\js - 备份 删除前\yy_card.js" />
+    <Content Include="Content\Shared1\public\media\js\app.js" />
+    <Content Include="Content\Shared1\public\media\js\bootstrap-modal.js" />
+    <Content Include="Content\Shared1\public\media\js\bootstrap-modalmanager.js" />
+    <Content Include="Content\Shared1\public\media\js\bootstrap.min.js" />
+    <Content Include="Content\Shared1\public\media\js\colpick.js" />
+    <Content Include="Content\Shared1\public\media\js\date.js" />
+    <Content Include="Content\Shared1\public\media\js\daterangepicker.js" />
+    <Content Include="Content\Shared1\public\media\js\dropzone.js" />
+    <Content Include="Content\Shared1\public\media\js\DT_bootstrap.js" />
+    <Content Include="Content\Shared1\public\media\js\excanvas.js" />
+    <Content Include="Content\Shared1\public\media\js\excanvas.min.js" />
+    <Content Include="Content\Shared1\public\media\js\form-components.js" />
+    <Content Include="Content\Shared1\public\media\js\form-fileupload.js" />
+    <Content Include="Content\Shared1\public\media\js\form-samples.js" />
+    <Content Include="Content\Shared1\public\media\js\form-validation.js" />
+    <Content Include="Content\Shared1\public\media\js\form-wizard.js" />
+    <Content Include="Content\Shared1\public\media\js\fullcalendar.min.js" />
+    <Content Include="Content\Shared1\public\media\js\gallery.js" />
+    <Content Include="Content\Shared1\public\media\js\gmaps.js" />
+    <Content Include="Content\Shared1\public\media\js\inbox.js" />
+    <Content Include="Content\Shared1\public\media\js\index.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery-1.10.1.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery-1.8.3.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.backstretch.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.blockui.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.bootpag.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.cookie.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.countdown.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.dataTables.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.dataTables.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.easy-pie-chart.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.fancybox.pack.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.fileupload-fp.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.fileupload-ui.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.fileupload.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.flot.crosshair.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.flot.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.flot.pie.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.flot.resize.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.flot.stack.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.gritter.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.iframe-transport.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.input-ip-address-control-1.0.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.inputmask.bundle.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.knob.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.multi-select.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.nestable.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.pulsate.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.rotate.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.slimscroll.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.sparkline.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.tagsinput.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.toggle.buttons.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.ui.widget.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.uniform.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.upload.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.validate.min.js" />
+    <Content Include="Content\Shared1\public\media\js\jquery.xdr-transport.js" />
+    <Content Include="Content\Shared1\public\media\js\jsaddress.js" />
+    <Content Include="Content\Shared1\public\media\js\load-image.min.js" />
+    <Content Include="Content\Shared1\public\media\js\lock.js" />
+    <Content Include="Content\Shared1\public\media\js\login-soft.js" />
+    <Content Include="Content\Shared1\public\media\js\login.js" />
+    <Content Include="Content\Shared1\public\media\js\maps-google.js" />
+    <Content Include="Content\Shared1\public\media\js\maps-vector.js" />
+    <Content Include="Content\Shared1\public\media\js\plugin.js" />
+    <Content Include="Content\Shared1\public\media\js\portlet-draggable.js" />
+    <Content Include="Content\Shared1\public\media\js\respond.js" />
+    <Content Include="Content\Shared1\public\media\js\respond.min.js" />
+    <Content Include="Content\Shared1\public\media\js\search.js" />
+    <Content Include="Content\Shared1\public\media\js\select2.min.js" />
+    <Content Include="Content\Shared1\public\media\js\table-advanced.js" />
+    <Content Include="Content\Shared1\public\media\js\table-editable.js" />
+    <Content Include="Content\Shared1\public\media\js\table-managed.js" />
+    <Content Include="Content\Shared1\public\media\js\tmpl.min.js" />
+    <Content Include="Content\Shared1\public\media\js\ui-general.js" />
+    <Content Include="Content\Shared1\public\media\js\ui-jqueryui.js" />
+    <Content Include="Content\Shared1\public\media\js\ui-modals.js" />
+    <Content Include="Content\Shared1\public\media\js\ui-nestable.js" />
+    <Content Include="Content\Shared1\public\media\js\ui-sliders.js" />
+    <Content Include="Content\Shared1\public\media\js\ui-tree.js" />
+    <Content Include="Content\Shared1\public\media\js\uploadpreview.js" />
+    <Content Include="Content\Shared1\public\media\js\website - 副本 %282%29.js" />
+    <Content Include="Content\Shared1\public\media\js\website - 副本.js" />
+    <Content Include="Content\Shared1\public\media\js\website.js" />
+    <Content Include="Content\Shared1\public\media\js\wecard.js" />
+    <Content Include="Content\Shared1\public\media\js\wysihtml5-0.3.0.js" />
+    <Content Include="Content\Shared1\public\media\js\yy_card.js" />
+    <Content Include="Content\Shared1\public\static\css\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\Shared1\public\static\css\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\Shared1\public\static\css\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\Shared1\public\static\css\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\Shared1\public\static\css\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\Shared1\public\static\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Shared1\public\static\css\website.css" />
+    <Content Include="Content\Shared1\public\swiper\dist\css\swiper.css" />
+    <Content Include="Content\Shared1\public\swiper\dist\css\swiper.min.css" />
+    <Content Include="Content\Shared1\public\swiper\dist\js\swiper.jquery.js" />
+    <Content Include="Content\Shared1\public\swiper\dist\js\swiper.jquery.min.js" />
+    <Content Include="Content\Shared1\public\swiper\dist\js\swiper.jquery.umd.js" />
+    <Content Include="Content\Shared1\public\swiper\dist\js\swiper.jquery.umd.min.js" />
+    <Content Include="Content\Shared1\public\swiper\dist\js\swiper.js" />
+    <Content Include="Content\Shared1\public\swiper\dist\js\swiper.min.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\a11y.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\amd.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\controller.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\core.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\dom-plugins.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\dom.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\effects.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\emitter.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\get-dom-lib.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\get-jquery.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\hashnav.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\history.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\init.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\keyboard.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\lazy-load.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\mousewheel.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\parallax.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\plugins.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\scrollbar.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\swiper-intro-f7.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\swiper-intro.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\swiper-outro.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\swiper-proto.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\wrap-end-umd.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\wrap-end.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\wrap-start-umd.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\wrap-start.js" />
+    <Content Include="Content\Shared1\public\swiper\src\js\zoom.js" />
+    <Content Include="Content\Shared\css\font\fontawesome-webfont.svg" />
+    <Content Include="Content\Shared\css\images\divider1-bg.png" />
+    <Content Include="Content\Shared\css\images\featured-wrapper-bg.jpg" />
+    <Content Include="Content\Shared\css\images\footer-content-wrapper-bg.jpg" />
+    <Content Include="Content\Shared\css\images\header-wrapper-bg.jpg" />
+    <Content Include="Content\Shared\css\images\link-style1-divider.png" />
+    <Content Include="Content\Shared\css\images\main-wrapper-bg.jpg" />
+    <Content Include="Content\Shared\css\images\mobileUI-site-nav-opener-bg.svg" />
+    <Content Include="Content\Shared\css\images\toggle.svg" />
+    <Content Include="Content\Shared\css\skel-noscript.css" />
+    <Content Include="Content\Shared\css\style-1000px.css" />
+    <Content Include="Content\Shared\css\style-desktop.css" />
+    <Content Include="Content\Shared\css\style-mobile.css" />
+    <Content Include="Content\Shared\css\style.css" />
+    <Content Include="Content\Shared\images\banner.jpg" />
+    <Content Include="Content\Shared\images\pics01.jpg" />
+    <Content Include="Content\Shared\images\pics03.jpg" />
+    <Content Include="Content\Shared\images\pics04.jpg" />
+    <Content Include="Content\Shared\images\pics05.jpg" />
+    <Content Include="Content\Shared\images\pics06.jpg" />
+    <Content Include="Content\Shared\images\即春谣.jpg" />
+    <Content Include="Content\Shared\images\古风.jpg" />
+    <Content Include="Content\Shared\images\欧美.jpg" />
+    <Content Include="Content\Shared\images\清明梦.jpg" />
+    <Content Include="Content\Shared\images\牵丝戏 .jpg" />
+    <Content Include="Content\Shared\images\电音.jpg" />
+    <Content Include="Content\Shared\images\锦鲤抄.jpg" />
+    <Content Include="Content\Shared\images\青春.jpg" />
+    <Content Include="Content\Shared\js\html5shiv.js" />
+    <Content Include="Content\Shared\js\init.js" />
+    <Content Include="Content\Shared\js\skel-panels.min.js" />
+    <Content Include="Content\Shared\js\skel.min.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="image\articles\1028.jpg" />
+    <Content Include="image\list\1028.jpg" />
+    <Content Include="Music\1.mp3" />
+    <Content Include="Music\10.mp3" />
+    <Content Include="Music\11.mp3" />
+    <Content Include="Music\12.mp3" />
+    <Content Include="Music\13.mp3" />
+    <Content Include="Music\2.mp3" />
+    <Content Include="Music\3.mp3" />
+    <Content Include="Music\4.mp3" />
+    <Content Include="Music\5.mp3" />
+    <Content Include="Music\6.mp3" />
+    <Content Include="Music\7.mp3" />
+    <Content Include="Music\8.mp3" />
+    <Content Include="Music\9.mp3" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Shared\css\font\fontawesome-webfont.eot" />
+    <Content Include="Content\Shared\css\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\Shared\css\font\fontawesome-webfont.woff" />
+    <Content Include="Content\Shared\css\font\FontAwesome.otf" />
+    <Content Include="Content\Shared1\public\media\image\css" />
+    <Content Include="Content\Shared1\public\media\image\fontawesome-webfont.eot" />
+    <Content Include="Content\Shared1\public\media\image\fontawesome-webfont.ttf" />
+    <Content Include="Content\Shared1\public\media\image\fontawesome-webfont.woff" />
+    <Content Include="Content\Shared1\public\media\image\glyphicons-regular.eot" />
+    <Content Include="Content\Shared1\public\swiper\dist\js\maps\swiper.jquery.min.js.map" />
+    <Content Include="Content\Shared1\public\swiper\dist\js\maps\swiper.jquery.umd.min.js.map" />
+    <Content Include="Content\Shared1\public\swiper\dist\js\maps\swiper.min.js.map" />
+    <Content Include="Content\Shared1\public\swiper\src\less\core.less" />
+    <Content Include="Content\Shared1\public\swiper\src\less\effects.less" />
+    <Content Include="Content\Shared1\public\swiper\src\less\mixins.less" />
+    <Content Include="Content\Shared1\public\swiper\src\less\navigation-f7.less" />
+    <Content Include="Content\Shared1\public\swiper\src\less\navigation.less" />
+    <Content Include="Content\Shared1\public\swiper\src\less\preloader-f7.less" />
+    <Content Include="Content\Shared1\public\swiper\src\less\preloader.less" />
+    <Content Include="Content\Shared1\public\swiper\src\less\scrollbar.less" />
+    <Content Include="Content\Shared1\public\swiper\src\less\swiper.less" />
+    <Content Include="Content\Shared1\public\swiper\src\less\zoom.less" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\Articles_CommentController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\ListController.cs" />
+    <Compile Include="Controllers\List_CommentController.cs" />
+    <Compile Include="Controllers\List_KeepController.cs" />
+    <Compile Include="Controllers\List_Music_KeepController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\MusicController.cs" />
+    <Compile Include="Controllers\Music_CommentController.cs" />
+    <Compile Include="Controllers\Music_TypeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ArticlesViewModel.cs" />
+    <Compile Include="ViewModel\IndexViewModel.cs" />
+    <Compile Include="ViewModel\ListViewModel.cs" />
+    <Compile Include="ViewModel\List_Music_KeepViewModel.cs" />
+    <Compile Include="ViewModel\MusicViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Manager\Add.cshtml" />
+    <Content Include="Views\Manager\Login.cshtml" />
+    <Content Include="Views\User\Add.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Music\Index.cshtml" />
+    <Content Include="Views\Music\Create.cshtml" />
+    <Content Include="Views\List\Index.cshtml" />
+    <Content Include="Views\List\List1.cshtml" />
+    <Content Include="Views\List\Add.cshtml" />
+    <Content Include="Views\List\List.cshtml" />
+    <Content Include="Views\List_Music_Keep\Index.cshtml" />
+    <Content Include="Views\List_Music_Keep\Add.cshtml" />
+    <Content Include="Views\Music\Details.cshtml" />
+    <Content Include="Views\Music_Comment\Index.cshtml" />
+    <Content Include="Views\Articles\Index.cshtml" />
+    <Content Include="Views\Articles\Add.cshtml" />
+    <Content Include="Views\Articles\Details.cshtml" />
+    <Content Include="Views\Articles\Details2.cshtml" />
+    <Content Include="Views\Articles\Edit.cshtml" />
+    <Content Include="Views\Articles\List.cshtml" />
+    <Content Include="Views\Articles\Articles.cshtml" />
+    <Content Include="Views\Articles_Comment\Index.cshtml" />
+    <Content Include="Views\Articles_Comment\Delete.cshtml" />
+    <Content Include="Views\Articles_Comment\Details.cshtml" />
+    <Content Include="Views\Music_Type\Create.cshtml" />
+    <Content Include="Views\Music_Type\Index.cshtml" />
+    <Content Include="Views\Music_Type\Edit.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Music\Index1.cshtml" />
+    <Content Include="Views\Music\Music.cshtml" />
+    <Content Include="Views\Music\Index2.cshtml" />
+    <Content Include="Views\List\Details.cshtml" />
+    <Content Include="Views\List_Comment\Index.cshtml" />
+    <Content Include="Views\User\UserIndex.cshtml" />
+    <Content Include="Views\User\UserCenter.cshtml" />
+    <Content Include="Views\List\List2.cshtml" />
+    <Content Include="Views\User\Save.cshtml" />
+    <Content Include="Views\Music\Music1.cshtml" />
+    <Content Include="Views\Music\List.cshtml" />
+    <Content Include="Views\Shared\_LayoutManager.cshtml" />
+    <Content Include="Views\Manager\Index1.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="image\music\" />
+    <Folder Include="image\users\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\List_Keep\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{ec1baef3-1afb-4bc2-ac4c-81bd28837952}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Commom.csproj">
+      <Project>{394c7dc0-9fa1-4787-8daf-e25d302f3863}</Project>
+      <Name>Commom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{0d9171d0-bf8b-407f-b591-5cd7a1099b4f}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{ca9f0548-fd22-4528-b149-25a5f1cfc522}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55873</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55873/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,53 @@
+﻿@model Model.Articles
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<div>
+    @using (Html.BeginForm("Edit", "Articles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "")
+        @Html.HiddenFor(model => model.art_id)
+        <div>
+            @Html.LabelFor(model => model.art_name)
+            <div>
+                @Html.EditorFor(model => model.art_name)
+                @Html.ValidationMessageFor(model => model.art_name)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.art_image)
+            <div>
+                <div>
+                    @if (string.IsNullOrEmpty(Model.art_image))
+                    {
+                        @:none
+                    }
+                    else
+                    {
+                        <img width="75" height="75" src="@Url.Content(Model.art_image)" alt="images" />
+                    }
+                </div>
+                <input type="file" name="articlesimage" />
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.art_mess)
+            <div>
+                @Html.EditorFor(model => model.art_mess)
+                @Html.ValidationMessageFor(model => model.art_mess)
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="submit" value="发布文章" />
+            </div>
+        </div>
+        <div>
+            @Html.ActionLink("返回文章列表", "List")
+        </div>
+    }
+
+</div>

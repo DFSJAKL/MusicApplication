@@ -1,0 +1,31 @@
+﻿@model Model.Users
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<div style="color:white ">
+    <a href="@Url.Action("Index","User")">用户主页</a>
+    <div>
+        @using (Html.BeginForm("Login", "User", FormMethod.Post))
+        {
+            @Html.ValidationSummary("");
+
+            <div>
+                <div>
+                
+                    @Html.TextBoxFor(user => user.user_name)
+                </div>
+                <div>
+                    @Html.PasswordFor(user => user.user_pwd)
+                </div>
+                <div>
+                    <input type="submit" value="登录" />
+                </div>
+            </div>
+
+        }
+        <a  href="@Url.Action("Register","User")"><button>注册</button></a>
+    </div>
+</div>

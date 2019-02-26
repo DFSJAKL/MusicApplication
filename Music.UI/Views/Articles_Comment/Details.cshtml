@@ -1,0 +1,57 @@
+﻿@model Model.Articles_Comment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>文章评论</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ac_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ac_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.art_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.art_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ac_mess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ac_mess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ac_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ac_time)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("返回列表", "Index")
+</p>
