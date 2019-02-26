@@ -30,83 +30,59 @@
                 <!-- BEGIN PAGE HEADER-->
                 <div class="row-fluid">
                     <div class=" admin-content">
-
-
-
                         <h2>Create</h2>
+                        <div style="float:right;">
+                            @Html.ActionLink("返回列表", "List1")
+                        </div>
                         @Session["user_id"]
                         @using (Html.BeginForm("Add", "List", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                        {
-                            @*@Html.AntiForgeryToken()*@
-
+                        { 
                             <div class="form-horizontal">
                                 <h4>List</h4>
                                 <hr />
-                                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-
-
-                                @*<div class="form-group">
-                                        @Html.LabelFor(model => model.list_mess, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div style="margin-left:400px;">
+                                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        歌单名称：
                                         <div class="col-md-10">
-                                            <input type="file" name="music" />
+                                            @Html.EditorFor(model => model.list_name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.list_name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        歌单描述：
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.list_mess, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.list_mess, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        歌单封面：
+                                        <div class="col-md-10">
+                                            <input type="file" name="listimage" />
 
                                         </div>
-                                    </div>*@
-
-
-
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.list_name, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.list_name, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.list_name, "", new { @class = "text-danger" })
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10" style="margin-left:135px;">
+                                            <input type="submit" value="创建歌单" class="btn btn-default" />
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.list_mess, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.list_mess, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.list_mess, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.list_image, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        <input type="file" name="listimage" />
-
-                                    </div>
-                                </div>
-
-
-
-                                <div class="form-group">
-                                    <div class="col-md-offset-2 col-md-10">
-                                        <input type="submit" value="Create" class="btn btn-default" />
-                                    </div>
-                                </div>
                             </div>
                         }
                         @Session["user_id"]
 
-                        <div>
-                            @Html.ActionLink("login", "Login", "User")
-                            @Html.ActionLink("Back to List", "Index")
-                        </div>
-
 
                     </div>
                 </div>
-                <!-- END PAGE HEADER-->
-                <!-- Begin page-->
                 <div class="ui-widget ui-helper-clearfix">
-
                 </div>
-                <!-- END page-->
-
             </div>
-            <!-- END PAGE CONTAINER-->
         </div>
     </div>
 </body>

@@ -14,12 +14,24 @@ namespace Music.UI.Controllers
     
     public class ArticlesController : Controller
     {
+        
         private musicEntities db = new musicEntities();
         ArticlesBll articlesbll = new ArticlesBll();
         // GET: Articles
         public ActionResult Index()
         {
-            return View();
+            var articles1 = (from m in db.Articles select m).ToList().Take(5);
+            var music1 = (from m in db.Music1 select m).ToList().Take(5);
+            var list1 = (from p in db.List select p).ToList().Take(5);
+            var index = new Music.UI.ViewModel.ArticlesViewModel()
+            {
+                Msuic2 = music1,
+                Articles2 = articles1,
+                List = list1,
+
+               
+            };
+            return View(index);
         }
 
         #region 文章添加

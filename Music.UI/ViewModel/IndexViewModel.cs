@@ -14,7 +14,9 @@ namespace Music.UI.ViewModel
 
         public IEnumerable<Articles > Articles1 { get; set; }
 
-        public IEnumerable<List> List { get; set; }
+        public IEnumerable<Articles> Articles2 { get; set; }
+
+        public IEnumerable<List> List { get; set;  }
 
         public IEnumerable<Users> Users { get; set; }
 

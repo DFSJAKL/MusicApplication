@@ -9,5 +9,6 @@ namespace IDAL
 {
     public interface IMusic:IBase<Music1>
     {
+        int Delete(int id);
     }
 }

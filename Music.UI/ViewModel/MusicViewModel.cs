@@ -10,7 +10,7 @@ namespace Music.UI.ViewModel
     {
         public IEnumerable<Music_Type> Type1 { get; set; }
 
-
+        public Articles Articles1 { get; set; }
 
         public IEnumerable<Music1 > Musics { get; set; }
 

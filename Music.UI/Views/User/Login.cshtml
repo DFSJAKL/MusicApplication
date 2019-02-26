@@ -1,31 +1,123 @@
 ﻿@model Model.Users
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Index";
+    Layout = null;
 }
 
-<h2>Login</h2>
 
-<div style="color:white ">
-    <a href="@Url.Action("Index","User")">用户主页</a>
-    <div>
-        @using (Html.BeginForm("Login", "User", FormMethod.Post))
-        {
-            @Html.ValidationSummary("");
+<!DOCTYPE html>
+<html>
 
-            <div>
+<!-- Head -->
+<head>
+
+    <title>登录表单</title>
+
+
+
+
+    <link href="~/Content/New/css/style1.css" rel="stylesheet" />
+</head>
+<!-- //Head -->
+<!-- Body -->
+<body>
+
+    <h1>登录表单</h1>
+
+    <div class="container w3layouts agileits">
+
+        <div class="login w3layouts agileits">
+            <h2>登 录</h2>
+            @using (Html.BeginForm("Login", "User", FormMethod.Post))
+            {
+                @Html.ValidationSummary("");
                 <div>
-                
-                    @Html.TextBoxFor(user => user.user_name)
+                    <div class="form-group">
+                        <label class="sr-only" for="form-first-name">用户名</label>
+                        @Html.TextBoxFor(user => user.user_name, new { name = "form-first-name", placeholder = "请输入用户名", @class = "form-first-name form-control", id = "form-first-name" })
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="form-last-name">密码</label>
+                        @Html.PasswordFor(user => user.user_pwd, new { name = "form-last-name", placeholder = "请输入密码", @class = "form-last-name form-control", id = "form-last-name" })
+                    </div>
+                    <div class="send-button w3layouts agileits">
+                        <form>
+                            <input type="submit" value="登 录">
+                        </form>
+                    </div>
                 </div>
-                <div>
-                    @Html.PasswordFor(user => user.user_pwd)
-                </div>
-                <div>
-                    <input type="submit" value="登录" />
-                </div>
+
+            }
+
+            <div class="social-icons w3layouts agileits">
+                <p>- 其他方式登录 -</p>
+                <ul>
+                    <li class="qq">
+                        <a href="#">
+                            <span class="icons w3layouts agileits"></span>
+                            <span class="text w3layouts agileits">QQ</span>
+                        </a>
+                    </li>
+                    <li class="weixin w3ls">
+                        <a href="#">
+                            <span class="icons w3layouts"></span>
+                            <span class="text w3layouts agileits">微信</span>
+                        </a>
+                    </li>
+                    <li class="weibo aits">
+                        <a href="#">
+                            <span class="icons agileits"></span>
+                            <span class="text w3layouts agileits">微博</span>
+                        </a>
+                    </li>
+                    <div class="clear"> </div>
+                </ul>
             </div>
+            <div class="clear"></div>
+        </div><div class="copyrights">Collect from <a href="http://www.cssmoban.com/">企业网站模板</a></div>
+              <div class="register w3layouts agileits">
+                  <h2>注 册</h2>
+                  @using (Html.BeginForm("Register", "User", FormMethod.Post))
+                  {
+                     
+                          <div class="form-group">
+                              <label class="sr-only" for="form-first-name">用户名</label>
+                              @Html.TextBoxFor(user => user.user_name, new { name = "form-first-name", placeholder = "请输入用户名", @class = "form-first-name form-control", id = "form-first-name" })
+                              @Html.ValidationMessageFor(user => user.user_name)
+                          </div>
+                          <div class="form-group">
+                              <label class="sr-only" for="form-username">密码</label>
+                              @Html.TextBoxFor(user => user.user_pwd, new { name = "form-first-name", placeholder = "请输入密码", @class = "form-first-name form-control", id = "form-first-name" })
+                              @Html.ValidationMessageFor(user => user.user_pwd)
+                          </div>
+                          <div class="form-group">
+                              <label class="sr-only" for="form-username">用户邮箱</label>
+                              @Html.TextBoxFor(model => model.user_email, new { name = "form-first-name", placeholder = "请输入邮箱", @class = "form-first-name form-control", id = "form-first-name" })
+                              @Html.ValidationMessageFor(model => model.user_email)
+                          </div>
+                          <div class="form-group">
+                              <label class="sr-only" for="form-last-name">用户电话</label>
+                              @Html.TextBoxFor(model => model.user_phone, new { name = "form-first-name", placeholder = "请输入电话", @class = "form-first-name form-control", id = "form-first-name" })
+                              @Html.ValidationMessageFor(model => model.user_phone)
+                          </div>
+                          <div class="send-button w3layouts agileits">
+                              <form>
+                                  <input type="submit" value="免费注册">
+                              </form>
+                          </div>
+                          }
+                          <div class="clear"></div>
+                      </div>
+                  
+                      <div class="clear"></div>
 
-        }
-        <a  href="@Url.Action("Register","User")"><button>注册</button></a>
-    </div>
-</div>
+                  </div>
+
+</body>
+<!-- //Body -->
+
+</html>
+
+
+
+

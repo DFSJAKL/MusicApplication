@@ -27,6 +27,7 @@ namespace Music.UI.Controllers
             {
                 Musics = music1,
                 List1 = list,
+                
             };
             return PartialView("Index1", index);
         }
@@ -121,7 +122,7 @@ namespace Music.UI.Controllers
         #region 删除音乐
         public ActionResult Delete(int id)
         {
-            var temp = mb.Remove(id);
+            var temp = mb.Delete(id);
             if (temp == true)
                 return Content("<script>alert('删除成功！');window.open('" + Url.Action("List", "Music") + "','_self');</script>");
             else

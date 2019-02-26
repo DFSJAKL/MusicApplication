@@ -51,65 +51,65 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Articles.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
     <Compile Include="Articles_Comment.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
     <Compile Include="List.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
     <Compile Include="List_Comment.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
     <Compile Include="List_Keep.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
     <Compile Include="List_Music_Keep.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
-    <Compile Include="Music.Context.cs">
+    <Compile Include="music.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Music.Context.tt</DependentUpon>
+      <DependentUpon>music.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Music.cs">
+    <Compile Include="music.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
-    <Compile Include="Music.Designer.cs">
+    <Compile Include="music.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Music.edmx</DependentUpon>
+      <DependentUpon>music.edmx</DependentUpon>
     </Compile>
     <Compile Include="Music1.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
     <Compile Include="Music_Comment.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
     <Compile Include="Music_Type.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users.cs">
-      <DependentUpon>Music.tt</DependentUpon>
+      <DependentUpon>music.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="Music.edmx">
+    <EntityDeploy Include="music.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Music.Designer.cs</LastGenOutput>
+      <LastGenOutput>music.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Music.edmx.diagram">
-      <DependentUpon>Music.edmx</DependentUpon>
+    <None Include="music.edmx.diagram">
+      <DependentUpon>music.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -117,15 +117,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Music.Context.tt">
+    <Content Include="music.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Music.edmx</DependentUpon>
-      <LastGenOutput>Music.Context.cs</LastGenOutput>
+      <DependentUpon>music.edmx</DependentUpon>
+      <LastGenOutput>music.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Music.tt">
+    <Content Include="music.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Music.edmx</DependentUpon>
-      <LastGenOutput>Music.cs</LastGenOutput>
+      <DependentUpon>music.edmx</DependentUpon>
+      <LastGenOutput>music.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,83 +4,201 @@
 @{
     ViewBag.Title = "Index1";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
 }
-
-<!DOCTYPE html>
-
+<!DOCTYPE HTML>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Music</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <link href="~/Content/New/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Custom Theme files -->
+    <link href='http://fonts.useso.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
+    <link href="~/Content/New/css/style.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src="~/Content/New/js/jquery-1.11.1.min.js"></script>
+
+    <script src="~/Content/New/js/bootstrap.min.js"></script>
+
+    <script src="~/Content/New/js/modernizr.custom.js"></script>
+   
 </head>
 <body>
-    <!-- Banner -->
-    <div id="banner">
+    
+    <!--start-main-->
+    <div class="header-bottom">
         <div class="container">
-        </div>
-    </div>
-    <!-- /Banner -->
-    <!-- Main -->
-    <div id="main">
-        <div class="container">
-            <div class="row">
-
-                <div class="3u">
-                    
-                    <section class="sidebar">
-                        <header>
-                            <a href="@Url.Action("Index1","Music")"> <h2>音乐列表</h2> </a>
-                        </header>
-                        @foreach (var m in Model.Musics)
-                        {
-
-                            <ul class="default">
-                                @*<li><a href="@Url.Action("Details","Music",new {id=m.music_id})">不谓侠</a></li>
-                    <li><a href="@Url.Action("Details","Music",new {id=m.music_id})">隔烟水</a></li>
-                    <li><a href="@Url.Action("Details","Music",new {id=m.music_id})">牵丝戏</a></li>
-                    <li><a href="@Url.Action("Details","Music",new {id=m.music_id})">清明上河图</a></li>
-                    <li><a href="@Url.Action("Details","Music",new {id=m.music_id})">理想三旬</a></li>*@
-                                <li><a href="@Url.Action("Details","Music",new {id=m.music_id})">@m.music_name </a></li>
-                            </ul>
-
-                        }
-                    </section>
-                    <section class="sidebar">
-                        <header>
-                            <a href="@Url.Action("Index2","Music")"> <h2>歌单列表</h2> </a>
-                        </header>
-                        @foreach (var l in Model.List1)
-                        {
-
-                            <ul class="default">
-                                @*<li><a href="@Url.Action("Details","List",new {id=l.list_id})">古风与电子元素碰撞</a></li>
-                    <li><a href="@Url.Action("Details","List",new {id=l.list_id})">运动/游戏必备</a></li>
-                    <li><a href="@Url.Action("Details","List",new {id=l.list_id})">纯音乐</a></li>
-                    <li><a href="@Url.Action("Details","List",new {id=l.list_id})">华语专辑</a></li>
-                    <li><a href="@Url.Action("Details","List",new {id=l.list_id})">世界杯音乐集锦</a></li>
-                    <li><a href="@Url.Action("Details","List",new {id=l.list_id})">经典电影背景配乐</a></li>*@
-                                <li><a href="@Url.Action("Details","List",new {id=l.list_id})">@l.list_name</a></li>
-                            </ul>
-
-                        }
-                    </section>
-                </div>
-
-
-                <div class="9u skel-cell-important" style="display:inline;">
-                    <section>
-                        <div class="row">
-                            @{ Html.RenderAction("Music", "Music");}
-                         
-                        </div>
-                    </section>
-                </div>
+            <div class="logo">
+                <h1><a href="index.html">STYLE BLOG</a></h1>
+                <p><label class="of"></label>LET'S MAKE A PERFECT STYLE<label class="on"></label></p>
             </div>
         </div>
+    </div>
+    <!-- banner -->
+
+    <div class="banner-1">
 
     </div>
-    <!-- Main -->
+
+    <!-- technology-left -->
+    <div class="technology">
+        <div class="container">
+            <div class="col-md-9 technology-left">
+                <div class="music">
+                    <div class="latest">
+                        <h2 class="w3">推荐歌单</h2>
+                        <div class="tip-grids">
+                            <div class="col-md-6 tip-grid">
+                                <figure class="effect-julia">
+                                    <img src="images/m5.jpg" alt="">
+
+                                </figure>
+                            </div>
+                            <div class="col-md-6 tip-grid-right">
+                                <div class="tip-gd-left">
+                                    <h4>Voluptas sit aspernatur</h4>
+                                    <p>
+                                        Temporibus autem quibusdam et aut officiis
+                                        debitis aut rerum necessitatibus saepe eveniet ut
+                                        et voluptates repudiandae sint et molestiae non recusandae. .
+                                    </p>
+                                    <p>
+                                        Temporibus autem quibusdam et aut officiis
+                                        debitis aut rerum necessitatibus saepe eveniet ut
+                                        et voluptates repudiandae .
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="effect-grid">
+                        <h3 class="w3">歌单荟萃</h3>
+                        <ul class="grid cs-style-3">
+                            <li>
+                                @foreach (var p in Model.List1)
+                                {
+                                    <figure>
+                                        <a href="singlepage.html"><img src="@p.list_image" class="img-responsive" alt=""></a>
+                                        <figcaption>
+                                            <h4><a href="singlepage.html"><a href="@Url.Action("Details", "List", new { id = p.list_id })">@p.list_name </a></a></h4>
+                                        </figcaption>
+                                    </figure>
+                                }
+                            </li>
+
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- technology-right -->
+            <div class="col-md-3 technology-right">
+
+
+                <div class="blo-top1">
+
+                    <div class="tech-btm">
+                        <div class="search-1 wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                            <form action="#" method="post">
+                                <input type="search" name="Search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
+                                <input type="submit" value=" ">
+                            </form>
+                        </div>
+                        <h4>最新音乐 </h4>
+                        @foreach (var p in Model.Msuics1)
+                        {
+                            <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                                <div class="blog-grid-left">
+                                    <a href="singlepage.html"><img src="@p.music_image" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="blog-grid-right">
+
+                                    <h5><a href="singlepage.html"><a href="@Url.Action("Details","Music",new {id=p.music_id})">@p.music_mess </a></a> </h5>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="insta wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                        <h4>最新歌单</h4>
+
+                        @foreach (var p in Model.List1)
+                        {
+                            <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                                <div class="blog-grid-left">
+                                    <a href="singlepage.html"><img src="@p.list_image" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="blog-grid-right">
+
+                                    <h5><a href="singlepage.html"><a href="@Url.Action("Details","List",new {id=p.list_id})">@p.list_mess </a></a> </h5>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        }
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+            <div class="clearfix"></div>
+            <!-- technology-right -->
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-4 footer-left">
+                <h4>About Me</h4>
+                <p>Consectetur adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod .</p>
+                <img src="images/t4.jpg" class="img-responsive" alt="">
+                <div class="bht1">
+                    <a href="singlepage.html">Read More</a>
+                </div>
+            </div>
+            <div class="col-md-4 footer-middle">
+                <h4>Latest Tweet</h4>
+                <div class="mid-btm">
+                    <p>Sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod .</p>
+                    <a href="http://www.freemoban.com/">http://www.freemoban.com/</a>
+                </div>
+
+                <p>Consectetur adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod .</p>
+                <a href="http://www.freemoban.com/">http://www.freemoban.com/</a>
+
+            </div>
+            <div class="col-md-4 footer-right">
+                <h4>Newsletter</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                <div class="name">
+                    <form action="#" method="post">
+                        <input type="text" placeholder="Your Name" required="">
+                        <input type="text" placeholder="Your Email" required="">
+                        <input type="submit" value="Subscribed Now">
+                    </form>
+
+                </div>
+
+                <div class="clearfix"> </div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            <p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">www.freemoban.com</a></p>
+        </div>
+    </div>
 </body>
 </html>
 

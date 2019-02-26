@@ -103,6 +103,7 @@
           <Property Name="music_image" Type="nvarchar" MaxLength="50" />
           <Property Name="type_id" Type="int" />
           <Property Name="music_time" Type="datetime" />
+          <Property Name="point" Type="int" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -475,6 +476,7 @@
           <Property Name="music_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="type_id" Type="Int32" />
           <Property Name="music_time" Type="DateTime" Precision="3" />
+          <Property Name="point" Type="Int32" />
           <NavigationProperty Name="List_Music_Keep" Relationship="Self.FK_List_Music_Keep_Music" FromRole="Music1" ToRole="List_Music_Keep" />
           <NavigationProperty Name="Manager" Relationship="Self.FK_Music_Manager" FromRole="Music1" ToRole="Manager" />
           <NavigationProperty Name="Music_Comment" Relationship="Self.FK_Music_Comment_Music" FromRole="Music1" ToRole="Music_Comment" />
@@ -846,6 +848,7 @@
                 <ScalarProperty Name="music_image" ColumnName="music_image" />
                 <ScalarProperty Name="type_id" ColumnName="type_id" />
                 <ScalarProperty Name="music_time" ColumnName="music_time" />
+                <ScalarProperty Name="point" ColumnName="point" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

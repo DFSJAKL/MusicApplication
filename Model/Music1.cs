@@ -29,6 +29,7 @@ namespace Model
         public string music_image { get; set; }
         public Nullable<int> type_id { get; set; }
         public Nullable<System.DateTime> music_time { get; set; }
+        public Nullable<int> point { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<List_Music_Keep> List_Music_Keep { get; set; }

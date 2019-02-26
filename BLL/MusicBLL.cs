@@ -17,5 +17,9 @@ namespace BLL
         {
             return DataAccess.CreateMusic();
         }
+        public bool Delete(int id)
+        {
+            return imusic.Delete(id) > 0;
+        }
     }
 }

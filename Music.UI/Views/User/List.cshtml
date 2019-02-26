@@ -102,8 +102,6 @@
                 <!-- BEGIN PAGE HEADER-->
                 <div class="row-fluid">
                     <div class=" admin-content">
-
-
                         <table class="table">
                             <tbody id="list"></tbody>
                             <tr>
@@ -177,11 +175,10 @@
                                         @Html.DisplayFor(modelItem => item.user_time)
                                     </td>
                                     <td>
-
-
                                         @Html.ActionLink("删除", "Delete", new { id = item.user_id })
                                     </td>
                                 </tr>
+                                <br />
                             }
 
                  

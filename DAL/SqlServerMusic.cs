@@ -20,5 +20,20 @@ namespace DAL
         {
             return u => u.music_mess;
         }
+        //删除
+        //public int Remove(int id)
+        //{
+        //    T model = db.Set<T>().Where(GetByIdKey(id)).FirstOrDefault();
+        //    db.Set<T>().Remove(model);
+        //    return db.SaveChanges();
+        //}
+        public int Delete(int id)
+        {
+            Music1 model = db.Set<Music1>().Where(GetByIdKey(id)).FirstOrDefault();
+            IQueryable<List_Music_Keep> iquery = db.Set<List_Music_Keep>().Where(u => u.music_id == id);
+            db.Set<List_Music_Keep>().RemoveRange(iquery);
+            db.Set<Music1>().Remove(model);
+            return db.SaveChanges();
+        }
     }
 }
