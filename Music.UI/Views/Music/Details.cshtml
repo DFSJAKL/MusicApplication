@@ -3,82 +3,162 @@
 @model Music.UI.ViewModel.MusicViewModel
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Singlepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-<div>
-    <div>
-        <div>
-            <div>
-                <img src="@Model.Music2.music_image  " width="150" height="200" /><br />
-                @Model.Music2.music_mess<br />
-                @Model.Music2.music_time<br />
-                <audio controls="controls">
-                    <source src="@Model.Music2.music_music" />
-                </audio>
+    <link href="~/Content/New/css/bootstrap.css" rel="stylesheet" />
 
+    <!-- Custom Theme files -->
+    <link href='http://fonts.useso.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
+    <link href="~/Content/New/css/style.css" rel="stylesheet" />
 
-            </div>
-            <div>
-                @using (Html.BeginForm("Comments", "Music_comment", FormMethod.Post, new { id = "pinglun" }))
-                {
-                    <div>
-                        <textarea class="textarea" name="textarea"></textarea>
-                    </div>
-                    <input type="hidden" name="music_id" value="@Model.Music2.music_id " />
-                    if (Session["user_name"] != null)
-                    {
-                        <a href="javascript:document.getElementById('pinglun').submit()" class="u-btn btn-postcmt">发表评论</a>
+    <script src="~/Content/New/js/jquery-1.11.1.min.js"></script>
 
-                    }
-                    else
-                    {
-                        <a href="#" id="example2" class="u-btn btn-postcmt">发表评论</a>
-
-                    }
-                }
-            </div>
-            <div>
-                @*<div>
-            <div>
-                @if (Session["user_name"] != null)
-                {
-                    <a href="@Url.Action("Point", "Picture", new {Pic_ID=Model.Picture1.Pic_ID})">
-
-                        <p>点赞</p>
-                    </a>
-                }
-                else
-                {
-                    <p>nothing</p>
-                }
-            </div>
-
-        </div>*@
-                <div>
-                    <a href="@Url.Action("Add", "List_Music_Keep", new {music_id=Model.Music2.music_id })">
-
-                        <p>收藏到歌单</p>
-                    </a>
-                </div>
-            </div>
-            <div>
-
-                <div>
-                    @{ string tempid;}
-                    @foreach (Music_Comment p in Model.Music_Comment)
-                    {
-                        tempid = "dev" + p.mc_id;
-
-
-                        @p.mc_mess 
-                        <a href="@Url.Action("UserIndex", new {user_id=p.user_id })">@p.Users.user_name </a>
-                        @p.mc_time 
-                        <br />
-                    }
-                </div>
+    <script src="~/Content/New/js/bootstrap.min.js"></script>
+   
+</head>
+<body>
+    <div class="header-bottom">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">STYLE BLOG</a></h1>
+                <p><label class="of"></label>LET'S MAKE A PERFECT STYLE<label class="on"></label></p>
             </div>
         </div>
     </div>
-</div>
+    <!-- banner -->
+
+    <div class="banner-1">
+
+    </div>
+
+    <!-- technology-left -->
+    <div class="technology">
+        <div class="container">
+            <div class="col-md-9 technology-left">
+                <div class="agileinfo">
+
+                    <h2 class="w3">歌曲详细</h2>
+                    <div class="single">
+                        <img src="@Model.Music2.music_image  " width="150" height="200" />
+                        <div class="b-bottom">
+                            <h5 class="top"> @Model.Music2.music_name</h5>
+                            <p class="sub" ><audio controls="controls">
+                    <source src="@Model.Music2.music_music" />
+                </audio></p>
+                            <p>@Model.Music2.music_mess</p>
+
+                        </div>
+                    </div>
+
+
+                    <div class="response">
+                        <h4>评论</h4>
+                        @{ string tempid;}
+                        @foreach (Music_Comment p in Model.Music_Comment)
+                        {
+                            tempid = "dev" + p.mc_id;
+
+
+
+
+                        <div class="media response-info">
+                            <div class="media-left response-text-left">
+                               
+                                    <a href="@Url.Action("UserIndex", new { user_id = p.user_id })">@p.Users.user_name </a>
+                               
+                            </div>
+                            <div class="media-body response-text-right">
+                                <p>
+                                    @p.mc_mess
+                                </p>
+                                <ul>
+                                    <li>@p.mc_time</li>
+                                   
+                                </ul>
+                                
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        }
+                       
+                    </div>
+                    <div class="coment-form">
+                        <h4>说点什么吧</h4>
+                            @using (Html.BeginForm("Comments", "Music_comment", FormMethod.Post, new { id = "pinglun" }))
+                            {
+                                <div>
+                                    <textarea class="textarea" name="textarea"></textarea>
+                                </div>
+                                <input type="hidden" name="music_id" value="@Model.Music2.music_id " />
+                                if (Session["user_name"] != null)
+                                {
+                                    <a href="javascript:document.getElementById('pinglun').submit()" class="u-btn btn-postcmt">发表评论</a>
+
+                                }
+                                else
+                                {
+                                    <a href="#" id="example2" class="u-btn btn-postcmt">发表评论</a>
+
+                                }
+                            }
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- technology-right -->
+            <div class="col-md-3 technology-right">
+                <div class="blo-top1">
+                    <div class="tech-btm">
+                        <div class="search-1 wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                            <form action="#" method="post">
+                                <input type="search" name="Search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
+                                <input type="submit" value=" ">
+                            </form>
+                        </div>
+                        <h4>最新音乐 </h4>
+                        @foreach (var p in Model.Musics)
+                        {
+                            <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                                <div class="blog-grid-left">
+                                    <a href="@Url.Action("Details","Music",new {id=p.music_id}) "><img src="@p.music_image" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="blog-grid-right">
+
+                                    <h5> <a href="@Url.Action("Details","Music",new {id=p.music_id})">@p.music_name </a>  </h5>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="insta wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                        <h4>最新歌单</h4>
+                        @foreach (var p in Model.List1)
+                        {
+                            <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                                <div class="blog-grid-left">
+                                    <a href="@Url.Action("Details","List",new {id=p.list_id})"><img src="@p.list_image" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="blog-grid-right">
+
+                                    <h5><a href="@Url.Action("Details","List",new {id=p.list_id})">@p.list_name </a></h5>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>            
+        </div>   
+</body>
+</html>

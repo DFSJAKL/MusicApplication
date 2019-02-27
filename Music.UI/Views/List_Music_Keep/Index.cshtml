@@ -5,7 +5,10 @@
 }
 @foreach (var p in Model)
 {
-   <a href="@Url.Action("Details","Music",new { id=p.Music1.music_id})" > <img src="@p.Music1.music_image" width="200" height="200" /> 
-    </a>
+<a href="@Url.Action("Details","Music",new { id=p.Music1.music_id})"> 
+
+    <img src="@p.Music1.music_image" alt="team-image" class="team-img" style="height:180px">
+</a>
+    @p.Music1.music_name
 
 }

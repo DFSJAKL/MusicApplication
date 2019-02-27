@@ -4,14 +4,8 @@
     ViewBag.Title = "Articles";
     Layout = null;
 }
-<!DOCTYPE html>
-<style>
-</style>
-<div 
-     >
-    <div>
-
-    </div>
+ 
+<div class="col-md-9 technology-left">
     <div>
         <h2>文章列表</h2>
         <div>
@@ -19,17 +13,15 @@
                 @foreach (var p in Model)
                 {
                     <li>
-                        <div>
-                            <a href="@Url.Action("Details",new {id=p.art_id})">
-                                <img width="100" height="100" src="@p.art_image" />
-                            </a>
-                        </div>
+                        <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                            <div class="blog-grid-left">
+                                <a href="@Url.Action("Details","Articles",new {id=p.art_id})"><img src="@p.art_image" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
 
-                        <div>
-                            @p.art_mess
-                        </div>
-                        <div>
-                            @p.art_time
+                                <h5><a href="@Url.Action("Details","Articles",new {id=p.art_id})">@p.art_mess </a> </h5>
+                            </div>
+                            <div class="clearfix"> </div>
                         </div>
                     </li>
                 }
@@ -45,3 +37,4 @@
         </div>
     </div>
 </div>
+ 

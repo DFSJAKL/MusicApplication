@@ -4,25 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="30ba9c9acc854d3992ccbe450cef09ef" Name="Diagram1">
-        <EntityTypeShape EntityType="musicModel.Articles" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="musicModel.Articles_Comment" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="musicModel.List" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="musicModel.List_Comment" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="musicModel.List_Keep" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="musicModel.List_Music_Keep" Width="1.5" PointX="8.25" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="musicModel.Manager" Width="1.5" PointX="1.5" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="musicModel.Music_Comment" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="musicModel.Music_Type" Width="1.5" PointX="1.5" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="musicModel.Music1" Width="1.5" PointX="3.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="musicModel.Users" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+      <Diagram DiagramId="dc224ca1f1974e248d41f0f125779f5f" Name="Diagram1">
+        <EntityTypeShape EntityType="musicModel.Articles" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="musicModel.Articles_Comment" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="musicModel.List" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="musicModel.List_Comment" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="musicModel.List_Keep" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="musicModel.List_Music_Keep" Width="1.5" PointX="9" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="musicModel.Manager" Width="1.5" PointX="1.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="musicModel.Music_Comment" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="musicModel.Music_Type" Width="1.5" PointX="1.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="musicModel.Music1" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="musicModel.Users" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
         <AssociationConnector Association="musicModel.FK_Articles_Comment_Articles" ManuallyRouted="false" />
         <AssociationConnector Association="musicModel.FK_Articles_Manager" ManuallyRouted="false" />
         <AssociationConnector Association="musicModel.FK_Articles_Comment_Users" ManuallyRouted="false" />
         <AssociationConnector Association="musicModel.FK_List_Comment_List_Comment" ManuallyRouted="false" />
         <AssociationConnector Association="musicModel.FK_List_Keep_List" ManuallyRouted="false" />
         <AssociationConnector Association="musicModel.FK_List_Music_Keep_List_Music_Keep" ManuallyRouted="false" />
-        <AssociationConnector Association="musicModel.FK_List_Users" ManuallyRouted="false" />
         <AssociationConnector Association="musicModel.FK_List_Comment_Users" ManuallyRouted="false" />
         <AssociationConnector Association="musicModel.FK_List_Keep_Users" ManuallyRouted="false" />
         <AssociationConnector Association="musicModel.FK_List_Music_Keep_Music" ManuallyRouted="false" />

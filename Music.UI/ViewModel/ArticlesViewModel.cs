@@ -10,6 +10,10 @@ namespace Music.UI.ViewModel
     {
         public Articles Articles1 { get; set; }
 
+        public IEnumerable<List> Musics { get; set; }
+
+        public IEnumerable<List> List2 { get; set; }
+
         public IEnumerable<Articles> Articles2 { get; set; }
 
         public IEnumerable<Articles_Comment> Articles_Comment { get; set; }

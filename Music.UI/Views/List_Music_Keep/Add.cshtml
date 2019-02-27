@@ -8,19 +8,16 @@
 
 <div>
     <div>
-        <div>
-
-           
+        <div>           
             @foreach (var p in Model.List2)
             {
                 <a href="@Url.Action("Add2","List_Music_Keep" ,new {listid=p.list_id,musid=Model.Music.music_id } )">
+                    <img src="@p.list_image" height="200" width="200"/>
                     @p.list_name 
+                    <br />
                  
                 </a>
-
-
             }
-
         </div>
     </div>
 </div>

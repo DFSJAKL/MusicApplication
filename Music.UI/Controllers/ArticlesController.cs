@@ -128,7 +128,7 @@ namespace Music.UI.Controllers
         {
             var articles = from m in db.Articles.OrderByDescending(p => p.art_time)
                        select m;
-            int pageSize = 1;
+            int pageSize = 6;
             int pageNumber = (page ?? 1);
             return View(articles.ToPagedList(pageNumber, pageSize));
         }
@@ -140,11 +140,15 @@ namespace Music.UI.Controllers
             Articles articles = db.Articles.Find(id);
             var articles1 = from m in db.Articles.OrderByDescending(p => p.art_time) select m;
             var articles_comment = from m in db.Articles_Comment.Where(p => p.art_id == id).OrderByDescending(p => p.ac_time) select m;
+            var music1 = (from m in db.Music1 select m).ToList().Take(5);
+            var list1 = (from p in db.List select p).ToList().Take(5);
             var index = new Music.UI.ViewModel.ArticlesViewModel()
             {
                 Articles1 = articles,
                 Articles2 = articles1,
                 Articles_Comment = articles_comment,
+                Msuic2 = music1,
+                List = list1,
             };
             return View(index);
         }

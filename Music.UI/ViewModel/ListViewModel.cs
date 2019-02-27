@@ -8,7 +8,11 @@ namespace Music.UI.ViewModel
 {
     public class ListViewModel
     {
-        public List List1 { get; set; } 
+        public List List1 { get; set; }
+
+        public IEnumerable<List> List3 { get; set; }
+
+        public IEnumerable<List> Music2 { get; set; }
 
         public IEnumerable<List> List2 { get; set; }
 

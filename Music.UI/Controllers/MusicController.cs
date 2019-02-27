@@ -20,41 +20,24 @@ namespace Music.UI.Controllers
 
         public ActionResult Index1(String musicInfoFrom, string currentFilter, int? page)
         {
-            var music1 = (from p in db.Music1 select p).OrderByDescending(p=>p.music_time).Take(6);
+            var music1 = (from p in db.Music1 select p).OrderByDescending(p=>p.music_time).Take(5);
             
-            var list = (from l in db.List select l).ToList();
+            var list = (from l in db.List select l).ToList().Take(5);
             var index = new Music.UI.ViewModel.MusicViewModel()
             {
                 Musics = music1,
-                List1 = list,
-                
+                List1 = list,                
             };
             return PartialView("Index1", index);
-        }
-
-        public ActionResult Index2(String musicInfoFrom, string currentFilter, int? page)
-        {
-            var music1 = (from p in db.Music1 select p).OrderByDescending(p => p.music_time).Take(6);
-
-            var list = (from l in db.List select l).ToList();
-            var index = new Music.UI.ViewModel.MusicViewModel()
-            {
-                Musics = music1,
-                List1 = list,
-            };
-            return PartialView("Index2", index);
-        }
-        // GET: Music
+        }       
         public ActionResult Music(int ? page)
         {
             var music = from a in db.Music1.OrderByDescending(a => a.music_time)
                         select a;
-            int pageSize = 12;
+            int pageSize = 6;
             int pageNumber = (page ?? 1);
             return View(music.ToPagedList(pageNumber, pageSize));
-        }
-
-        
+        }       
 
         #region 音乐上传
         public ActionResult Create()
@@ -141,16 +124,17 @@ namespace Music.UI.Controllers
             //var picpoint = from p in db.Pic_Point.Where(p => p.Pic_ID == id)
             //               select p;
 
-
-            var music1 = from p in db.Music1.OrderByDescending(p => p.music_time)
-                            select p;
+            var list = (from l in db.List select l).ToList().Take(5);
+            
+            var music1 = from p in db.Music1.OrderByDescending(p => p.music_time).Take(5)
+                         select p;
             var music_comment = from pc in db.Music_Comment.Where(p => p.music_id == id)/*.OrderByDescending(p => p.music_time)*/
                               select pc;
             var index = new Music.UI.ViewModel.MusicViewModel()
             {
                 Musics = music1,
                 Music2 = musics,
-                
+                List1 = list,
                 Music_Comment = music_comment,
             };
 
@@ -165,7 +149,7 @@ namespace Music.UI.Controllers
         {
             var picture = from a in db.Music1.OrderByDescending(a => a.music_time)
                           select a;
-            int pageSize = 12;
+            int pageSize = 6;
             int pageNumber = (page ?? 1);
             return View(picture.ToPagedList(pageNumber, pageSize));
         }

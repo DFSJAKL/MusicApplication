@@ -29,9 +29,6 @@
                 <!-- BEGIN PAGE HEADER-->
                 <div class="row-fluid">
                     <div class=" admin-content">
-
-
-
                         <div>
                             <table class="table">
                                 <thead>
@@ -43,49 +40,49 @@
                                         <th>音乐简介</th>
                                         <th>音乐上传时间</th>
                                         <th>评论数</th>
-
-
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model.GetPagingData())
                                     {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.music_id)
-                                            </td>
-                                            <td>
-                                                <audio controls="controls">
-                                                    <source src="@item.music_music" />
-                                                </audio>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.music_id)
+                                        </td>
+                                        <td>
+                                            <audio controls="controls">
+                                                <source src="@item.music_music" />
+                                            </audio>
 
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Manager.mana_name)
-                                            </td>
-                                            <td>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Manager.mana_name)
+                                        </td>
+                                        <td>
 
 
-                                                <img width="75" height="75" src="@item.music_image" />
+                                            <img width="75" height="75" src="@item.music_image" />
 
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.music_mess)
-                                            </td>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.music_mess)
+                                        </td>
 
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.music_time)
-                                            </td>
-                                            <td>
-                                                @item.Music_Comment.Count()
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.music_time)
+                                        </td>
+                                        <td>
+                                            @item.Music_Comment.Count()
 
-                                            </td>
-
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("Add","List_Music_Keep",new{ music_id=item.music_id})">收藏到歌单</a>
+                                        </td>
                                             <td>
                                                 @Html.ActionLink("删除", "Delete", new { id = item.music_id })
                                             </td>
-                                        </tr>
+                                    </tr>
                                     }
                                 </tbody>
                                 <tfoot>
@@ -119,15 +116,9 @@
 
                     </div>
                 </div>
-                <!-- END PAGE HEADER-->
-                <!-- Begin page-->
                 <div class="ui-widget ui-helper-clearfix">
-
                 </div>
-                <!-- END page-->
-
             </div>
-            <!-- END PAGE CONTAINER-->
         </div>
     </div>
 </body>

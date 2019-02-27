@@ -1,4 +1,4 @@
-﻿@Model
+﻿@using Model
 @model Music.UI.ViewModel.ListViewModel
 @{
 
@@ -6,28 +6,11 @@
 }
 
 <!DOCTYPE html>
-
 <section class="section-background">
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="@Url.Action("Index","Index")">主页</a></li>
-            @if (Session["user_id"] == null)
-            {
-               
-                <li class="active">&nbsp;歌单详细</li>
-
-            }
-            else
-            {
-               
-                <li class="active">&nbsp;歌单详细</li>
-                <li style="float:right;"><a href="@Url.Action("List2","list")">我的歌单</a></li>
-            }
-
-           
+            <li><a href="@Url.Action("Index","Index")">主页</a></li>    
         </ol>
-
-
     </div>
 </section>
 <section class="about" id="about" style="background: #f3f3f3;">
@@ -43,10 +26,7 @@
             <div class="col-md-6 col-sm-12" style="height:350px">
                 <p class="about-detail">
                 </p>
-                <p class="about-detail">
-                    上传人: <a href="@Url.Action("UserIndex","User",new {user_id=Model.List1.Users.user_id})">
-                        @Model.List1.Users.user_id  
-                    </a>
+                <p class="about-detail"> 
                     <br />
                     <br />
                     <br />
@@ -72,25 +52,7 @@
                 <p class="about-detail">
                     &nbsp;
                 </p>
-                @*<p class="about-detail">
-
-                    @if (Session["User_Name"] != null)
-                    {
-                        <a href="@Url.Action("Point", "Album", new {Alb_ID=Model.Album1.Alb_ID})">
-                            <span class="btn-outline-info">点赞(@Model.Album_Point.Count()) </span>
-                        </a>
-                    }
-                    else
-                    {
-                        <a href="@Url.Action("Point", "Album", new {Alb_ID=Model.Album1.Alb_ID})">
-                            <span class="btn-outline-primary">点赞(@Model.Album_Point.Count()) </span>
-                        </a>
-                    }
-
-                </p>
-                <p class="about-detail">
-                    &nbsp;
-                </p>*@
+              
                 <p class="about-detail">
                     @if (Session["user_name"] != null)
                     {
@@ -105,10 +67,6 @@
                         </a>
                     }
                 </p>
-
-
-
-
             </div>
 
         </div>
@@ -119,14 +77,12 @@
     <div class="container section-wrapper">
         <h2 class="section-title black">
            歌单音乐
-        </h2> <!-- /.section-title -->
+        </h2>  /.section-title 
         <div class="underline purple"></div>
         <div class="row">
             @{ Html.RenderAction("Index", "List_Music_Keep");}
         </div>
     </div>
-
-
 </section>
 
 <section class="team">
@@ -164,7 +120,7 @@
                     @foreach (var p in Model.List_Comment)
                     {
                         <div style="float:left;margin-right:20px;">
-                            <a href="@Url.Action("UserIndex","User",new {user_id=p.Users.user_id})"></a>  @*<img src="@p.Users.user_image" height="50" width="50" /></a>*@
+                            <a href="@Url.Action("UserIndex","User",new {user_id=p.Users.user_id})"></a> 
                         </div>
                         <div style=" background: #f2fbf2;color: #666;padding: 2px 4px;">
                             <span>    @p.lc_time</span>

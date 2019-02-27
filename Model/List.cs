@@ -23,11 +23,11 @@ namespace Model
         }
     
         public int list_id { get; set; }
-        public int user_id { get; set; }
         public string list_name { get; set; }
         public string list_mess { get; set; }
         public string list_image { get; set; }
         public Nullable<System.DateTime> list_time { get; set; }
+        public Nullable<int> tuijian { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<List_Comment> List_Comment { get; set; }
@@ -35,6 +35,5 @@ namespace Model
         public virtual ICollection<List_Keep> List_Keep { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<List_Music_Keep> List_Music_Keep { get; set; }
-        public virtual Users Users { get; set; }
     }
 }

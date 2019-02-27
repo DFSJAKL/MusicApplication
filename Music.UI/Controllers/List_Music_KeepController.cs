@@ -11,24 +11,19 @@ namespace Music.UI.Controllers
     {
         musicEntities db = new musicEntities();
         // GET: List_Music_Keep
-        public ActionResult Index( int id)
+        public ActionResult Index(int id)
         {
             List list = db.List.Find(id);
             var musicss = (from p in db.List_Music_Keep select p).Where(p => p.list_id == id).ToList();
             return View(musicss);
         }
 
-        #region 添加歌曲进歌单
+         
         public ActionResult Add(int music_id)
-        {
-            int userid = Convert.ToInt32(Session["user_id"].ToString());
-
-            var list = from p in db.List.Where(p => p.user_id == userid)
-                        select p;
+        { 
+            var list = from p in db.List
+                       select p;
             var music = db.Music1.Find(music_id);
-
-
-
             var pictureinalbum = new ViewModel.ListViewModel
             {
                 List2 = list,
@@ -42,14 +37,13 @@ namespace Music.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                lmk.list_id  = listid;
-                lmk.music_id  = musid;
+                lmk.list_id = listid;
+                lmk.music_id = musid;
                 db.List_Music_Keep.Add(lmk);
                 db.SaveChanges();
                 return Content("<script>;alert('添加成功');history.go(-2)</script>");
             }
-            return RedirectToAction("Details", "Music");
+            return RedirectToAction("List1", "List");
         }
-        #endregion
     }
 }

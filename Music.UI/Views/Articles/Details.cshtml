@@ -3,9 +3,183 @@
 @model Music.UI.ViewModel.ArticlesViewModel
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Singlepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <link href="~/Content/New/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Custom Theme files -->
+    <link href='http://fonts.useso.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
+    <link href="~/Content/New/css/style.css" rel="stylesheet" />
+
+    <script src="~/Content/New/js/jquery-1.11.1.min.js"></script>
+
+    <script src="~/Content/New/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="header-bottom">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">STYLE BLOG</a></h1>
+                <p><label class="of"></label>LET'S MAKE A PERFECT STYLE<label class="on"></label></p>
+            </div>
+        </div>
+    </div>
+    <!-- banner -->
+
+    <div class="banner-1">
+
+    </div>
+
+    <!-- technology-left -->
+    <div class="technology">
+        <div class="container">
+            <div class="col-md-9 technology-left">
+                <div class="agileinfo">
+
+                    <h2 class="w3">新闻速递</h2>
+                    <div class="single">
+                        <img src="@Model.Articles1.art_image  " width="150" height="200" />
+                        <div class="b-bottom">
+                            <h5 class="top"> @Model.Articles1.art_name</h5>
+                            <p class="sub">
+                                @Model.Articles1.art_mess
+                            </p>
+                            <p>  @Model.Articles1.art_time</p>
+
+                        </div>
+                    </div>
+
+
+                    <div class="response">
+                        <h4>评论</h4>
+                        @{ string tempid;}
+                        @foreach (Articles_Comment p in Model.Articles_Comment)
+                        {
+                            tempid = "dev" + p.ac_id;
+
+
+
+
+                            <div class="media response-info">
+                                <div class="media-left response-text-left">
+
+                                    <a href="@Url.Action("UserIndex", new { user_id = p.user_id })">@p.Users.user_name </a>
+
+                                </div>
+                                <div class="media-body response-text-right">
+                                    <p>
+                                        @p.ac_mess
+                                    </p>
+                                    <ul>
+                                        <li>@p.ac_time</li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="coment-form">
+                        <h4>Leave your comment</h4>
+                        <form action="#" method="post">
+                            <input type="text" value="Name " name="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                            <input type="email" value="Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                            <input type="text" value="Website" name="websie" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Website';}" required="">
+                            <textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Comment...';}" required="">Your Comment...</textarea>
+                            <input type="submit" value="Submit Comment">
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- technology-right -->
+            <div class="col-md-3 technology-right">
+                <div class="blo-top1">
+                    <div class="tech-btm">
+                        <div class="search-1 wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                            <form action="#" method="post">
+                                <input type="search" name="Search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
+                                <input type="submit" value=" ">
+                            </form>
+                        </div>
+                        <h4>最新音乐 </h4>
+                        @foreach (var p in Model.Msuic2)
+                        {
+                            <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                                <div class="blog-grid-left">
+                                    <a href="@Url.Action("Details","Music",new {id=p.music_id}) "><img src="@p.music_image" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="blog-grid-right">
+
+                                    <h5> <a href="@Url.Action("Details","Music",new {id=p.music_id})">@p.music_name </a>  </h5>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="insta wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                        <h4>最新歌单</h4>
+                        @foreach (var p in Model.List)
+                        {
+                            <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                                <div class="blog-grid-left">
+                                    <a href="@Url.Action("Details","List",new {id=p.list_id})"><img src="@p.list_image" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="blog-grid-right">
+
+                                    <h5><a href="@Url.Action("Details","List",new {id=p.list_id})">@p.list_name </a></h5>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div>
     <div>
@@ -50,10 +224,10 @@
         @*@{ Html.RenderAction("News_Comment", "News_Comment");}*@
         @foreach (Articles_Comment p in Model.Articles_Comment)
         {
-            @p.Users.user_name 
-            @p.ac_mess 
+            @p.Users.user_name
+            @p.ac_mess
 
-            @p.ac_time 
+            @p.ac_time
             <br />
         }
     </div>

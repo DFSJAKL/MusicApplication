@@ -4,49 +4,50 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Music</title>
-</head>
-<body>
-
-    @foreach (var p in Model)
-    {
-
-        <section class="3u">
-            <header>
-                <h2>
-                    <a href="@Url.Action("Details",new { id=p.list_id})">
-                        <img src="@p.list_image" width="150" height="150" alt="" />
-                    </a>
-                </h2>
-            </header>
-            
-
-            <p>@p.list_name</p>
-            <br />  
-        </section>
-
-    }
-    <div style="float:right;">
+<div class="col-md-9 technology-left">
+    <div>
+        <h2>音乐列表</h2>
         <div>
-            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            <ul>
+                @foreach (var p in Model)
+                {
+                    <li>
+                        <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                            <div class="blog-grid-left">
+                                <a href="@Url.Action("Details","List",new {id=p.list_id})"><img src="@p.list_image" class="img-responsive" width="150" height="100"></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="@Url.Action("Details","List",new {id=p.list_id})">@p.list_name </a> </h5>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </li>
+                }
+            </ul>
         </div>
         <div>
-            @Html.PagedListPager(Model, page => Url.Action("Index2", "Music", new { page }))
+            <div>
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            </div>
+            <div>
+                @Html.PagedListPager(Model, page => Url.Action("Index", "List", new { page }))
+            </div>
         </div>
     </div>
-
-</body>
-</html>
+</div>
 
 
-<link href="~/Content/Shared/css/skel-noscript.css" rel="stylesheet" />
-<link href="~/Content/Shared/css/style.css" rel="stylesheet" />
-<link href="~/Content/Shared/css/style-desktop.css" rel="stylesheet" />
-<script src="~/Content/Shared/js/init.js"></script>
-<script src="~/Content/Shared/js/skel.min.js"></script>
-<script src="~/Content/Shared/js/skel-panels.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+

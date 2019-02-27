@@ -18,7 +18,6 @@ namespace Model
         public Users()
         {
             this.Articles_Comment = new HashSet<Articles_Comment>();
-            this.List = new HashSet<List>();
             this.List_Comment = new HashSet<List_Comment>();
             this.List_Keep = new HashSet<List_Keep>();
             this.Music_Comment = new HashSet<Music_Comment>();
@@ -34,8 +33,6 @@ namespace Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Articles_Comment> Articles_Comment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<List> List { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<List_Comment> List_Comment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

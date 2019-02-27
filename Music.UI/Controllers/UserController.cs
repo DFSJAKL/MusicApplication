@@ -228,7 +228,7 @@ namespace Music.UI.Controllers
             //int User_ID = Convert.ToInt32(Session["User_ID"].ToString());
             Users user1 = db.Users.Find(user_id);
             //var music1 = (from p in db.Music1 select p).OrderByDescending(p => p.music_time).Where(p => p.Users.user_id == user_id).ToList().Take(10);
-            var list1 = (from p in db.List select p).OrderByDescending(p => p.list_time).Where(p => p.user_id == user_id).ToList().Take(8);
+            //var list1 = (from p in db.List select p).OrderByDescending(p => p.list_time).Where(p => p.user_id == user_id).ToList().Take(8);
             var list_keep1 = (from p in db.List_Keep select p).OrderByDescending(p => p.lk_time).Where(p => p.user_id == user_id).ToList().Take(8);
             //var attention1 = (from p in db.Attention select p).OrderBy(p => p.Att_Time).Where(p => p.User_ID == User_ID).ToList();
 
@@ -236,7 +236,7 @@ namespace Music.UI.Controllers
             {
                 User1 = user1,
                 //Music2 = music1,
-                List1 = list1,
+                //List1 = list1,
                 List_Keep1 = list_keep1,
                 //Attention1 = attention1,
 
@@ -269,15 +269,15 @@ namespace Music.UI.Controllers
         //}
         #endregion
 
-        #region 用户歌单
-        public ActionResult List2()
-        {
-            int user_id = Convert.ToInt32(Session["user_id"].ToString());
-            Users user = db.Users.Find(user_id);
-            var list = (from p in db.List select p).Where(p => p.user_id == user_id).ToList();
-            return View(list);
-        }
-        #endregion
+        //#region 用户歌单
+        //public ActionResult List2()
+        //{
+        //    int user_id = Convert.ToInt32(Session["user_id"].ToString());
+        //    Users user = db.Users.Find(user_id);
+        //    var list = (from p in db.List select p).Where(p => p.user_id == user_id).ToList();
+        //    return View(list);
+        //}
+        //#endregion
 
         #region 用户音乐
         public ActionResult  Music()

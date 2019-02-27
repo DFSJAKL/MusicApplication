@@ -56,7 +56,7 @@ namespace Music.UI.Controllers
                     file.SaveAs(serverpath);
                     list.list_image = relativepath;
                 }
-                list.user_id = Convert.ToInt32(Session["user_id"].ToString());
+                
 
                 list.list_time = DateTime.Now;
                 listt.Add(list);
@@ -113,7 +113,7 @@ namespace Music.UI.Controllers
         #region 删除歌单
         public ActionResult Delete(int id)
         {
-            var temp = listt.Remove(id);
+            var temp = listt.Delete(id);
             if (temp == true)
                 return Content("<script>alert('删除成功！');window.open('" + Url.Action("List1", "List") + "','_self');</script>");
             else
@@ -136,23 +136,26 @@ namespace Music.UI.Controllers
         public ActionResult Details(int id)
         {
             List lists = db.List.Find(id);
-           
+
             var list_music_keep = from p in db.List_Music_Keep.Where(p => p.list_id == id)
-                                   select p;
+                                  select p;
             //var pictures = (from p in db.Picture_In_Album select p).Where(p => p.Alb_ID == id).ToList();
-           
+
             var list1 = from a in db.List.OrderByDescending(p => p.list_time)
-                         select a;
+                        select a;
+            var music1 = (from p in db.Music1 select p).OrderByDescending(p => p.music_time).Take(5);
+
+            var list = (from l in db.List select l).ToList().Take(5);
             var list_comment = from m in db.List_Comment.Where(p => p.list_id == id).OrderByDescending(p => p.lc_time)
-                                select m;
+                               select m;
             var list_keep = from m in db.List_Keep.Where(p => p.list_id == id)
-                             select m;
+                            select m;
             var index = new Music.UI.ViewModel.ListViewModel()
             {
                 List1 = lists,
                 List2 = list1,
                 List_Comment = list_comment,
-                
+                //List3 = list,
                 List_Keep = list_keep,
                 List_Music_Keep = list_music_keep,
             };

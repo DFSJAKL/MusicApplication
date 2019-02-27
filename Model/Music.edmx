@@ -32,11 +32,11 @@
             <PropertyRef Name="list_id" />
           </Key>
           <Property Name="list_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="user_id" Type="int" Nullable="false" />
           <Property Name="list_name" Type="nvarchar" MaxLength="50" />
           <Property Name="list_mess" Type="nvarchar(max)" />
           <Property Name="list_image" Type="nvarchar" MaxLength="50" />
           <Property Name="list_time" Type="datetime" />
+          <Property Name="tuijian" Type="int" />
         </EntityType>
         <EntityType Name="List_Comment">
           <Key>
@@ -225,18 +225,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_List_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="List" Type="Self.List" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="List">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Music_Comment_Music">
           <End Role="Music1" Type="Self.Music1" Multiplicity="1" />
           <End Role="Music_Comment" Type="Self.Music_Comment" Multiplicity="*" />
@@ -333,10 +321,6 @@
             <End Role="Music1" EntitySet="Music1" />
             <End Role="List_Music_Keep" EntitySet="List_Music_Keep" />
           </AssociationSet>
-          <AssociationSet Name="FK_List_Users" Association="Self.FK_List_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="List" EntitySet="List" />
-          </AssociationSet>
           <AssociationSet Name="FK_Music_Comment_Music" Association="Self.FK_Music_Comment_Music">
             <End Role="Music1" EntitySet="Music1" />
             <End Role="Music_Comment" EntitySet="Music_Comment" />
@@ -390,15 +374,14 @@
             <PropertyRef Name="list_id" />
           </Key>
           <Property Name="list_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="list_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="list_mess" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="list_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="list_time" Type="DateTime" Precision="3" />
+          <Property Name="tuijian" Type="Int32" />
           <NavigationProperty Name="List_Comment" Relationship="Self.FK_List_Comment_List_Comment" FromRole="List" ToRole="List_Comment" />
           <NavigationProperty Name="List_Keep" Relationship="Self.FK_List_Keep_List" FromRole="List" ToRole="List_Keep" />
           <NavigationProperty Name="List_Music_Keep" Relationship="Self.FK_List_Music_Keep_List_Music_Keep" FromRole="List" ToRole="List_Music_Keep" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_List_Users" FromRole="List" ToRole="Users" />
         </EntityType>
         <EntityType Name="List_Comment">
           <Key>
@@ -494,7 +477,6 @@
           <Property Name="user_sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="user_time" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Articles_Comment" Relationship="Self.FK_Articles_Comment_Users" FromRole="Users" ToRole="Articles_Comment" />
-          <NavigationProperty Name="List" Relationship="Self.FK_List_Users" FromRole="Users" ToRole="List" />
           <NavigationProperty Name="List_Comment" Relationship="Self.FK_List_Comment_Users" FromRole="Users" ToRole="List_Comment" />
           <NavigationProperty Name="List_Keep" Relationship="Self.FK_List_Keep_Users" FromRole="Users" ToRole="List_Keep" />
           <NavigationProperty Name="Music_Comment" Relationship="Self.FK_Music_Comment_Users" FromRole="Users" ToRole="Music_Comment" />
@@ -568,18 +550,6 @@
             </Principal>
             <Dependent Role="List_Music_Keep">
               <PropertyRef Name="list_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_List_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="List" Type="Self.List" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="List">
-              <PropertyRef Name="user_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -703,10 +673,6 @@
             <End Role="List" EntitySet="List" />
             <End Role="List_Music_Keep" EntitySet="List_Music_Keep" />
           </AssociationSet>
-          <AssociationSet Name="FK_List_Users" Association="Self.FK_List_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="List" EntitySet="List" />
-          </AssociationSet>
           <AssociationSet Name="FK_List_Comment_Users" Association="Self.FK_List_Comment_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="List_Comment" EntitySet="List_Comment" />
@@ -770,11 +736,11 @@
             <EntityTypeMapping TypeName="musicModel.List">
               <MappingFragment StoreEntitySet="List">
                 <ScalarProperty Name="list_id" ColumnName="list_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="list_name" ColumnName="list_name" />
                 <ScalarProperty Name="list_mess" ColumnName="list_mess" />
                 <ScalarProperty Name="list_image" ColumnName="list_image" />
                 <ScalarProperty Name="list_time" ColumnName="list_time" />
+                <ScalarProperty Name="tuijian" ColumnName="tuijian" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

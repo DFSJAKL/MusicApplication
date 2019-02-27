@@ -23,22 +23,19 @@ namespace Music.UI.Controllers
 
 
         #region 发表歌曲评论
-        [HttpPost]
-        [ValidateInput(false)]
+        [HttpPost] 
         public ActionResult Comments(Music_Comment mccomment)
         {
             string textarea = Request["textarea"];
-            int mc_id = Convert.ToInt32(Request["mc_id"]);
-
+            int music_id = Convert.ToInt32(Request["music_id"]);
             if (ModelState.IsValid)
-            {
-                mccomment.mc_id = mc_id;
+            { 
                 mccomment.user_id = Convert.ToInt32(Session["user_id"].ToString());
                 mccomment.mc_mess = textarea;
                 mccomment.mc_time = DateTime.Now;
                 db.Music_Comment.Add(mccomment);
                 db.SaveChanges();
-                return Content("<script>;alert('评论成功!');history.go(-1)</script>");
+                return Content("<script>alert('评论成功！');window.open('" + Url.Action("Details", "Music", new { id = music_id }) + "','_self');</script>");
 
             }
             return RedirectToAction("Details", "Music");

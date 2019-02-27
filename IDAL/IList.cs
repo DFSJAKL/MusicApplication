@@ -9,5 +9,6 @@ namespace IDAL
 {
     public interface IList : IBase<List>
     {
+        int Delete(int id);
     }
 }
